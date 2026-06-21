@@ -74,6 +74,23 @@ You will also need to install the following for things to work as seemlessly as 
 - [Late.sh](https://github.com/mpiorowski/late-sh)
 - probably some others im forgetting :D
 
+For starship, you will have to add this into your shell config (fish, bash, zsh)
+
+Fish
+```
+starship init fish | source
+```
+
+Bash
+```
+eval "$(starship init bash)"
+```
+
+Zsh
+```
+eval "$(starship init zsh)"
+```
+
 <div align="center">
 <h2> Updating </h2>
 </div>

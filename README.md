@@ -109,7 +109,7 @@ cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the s
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
-cp -r ~/
+cp -r ~/IVII-Dots/starship.toml/ ~/.config/  # for starship terminal prompts
 ```
 
 <div align="center">

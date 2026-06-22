@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# WIP Please ignore if you see dis
+
 echo" ___  ___      ___ ___  ___"
 echo"|\  \|\  \    /  /|\  \|\  \"
 echo"\ \  \ \  \  /  / | \  \ \  \"

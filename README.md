@@ -30,7 +30,7 @@ Browser - Brave
 
 Music Player - Spotify
 
-File Manager - Dolphin (Moving to yazi soon)
+File Manager - Nemo (Moving to yazi soon)
 
 Screen Recorder - OBS
 
@@ -68,6 +68,7 @@ You will also need to install the following for things to work as seemlessly as 
 - brave
 - neovim
 - vesktop
+- Nemo
 - yazi (if you want this is still wip)
 - zen browser (flatpak)
 - power-profiles-daemon
@@ -165,7 +166,7 @@ I'm a big fan of saying "no" to the mouse, so just about anything you can think 
 |Super + Z|Zen Browser (I like to seperate work and personal life)|
 |Super + P|Music Player (Default is Spotify, change in config to suit Your needs)|
 |Super + Ctrl + V|Vesktop (Change to whatever your discord client is)|
-|Super + E|File Manager (Default is Dolphin, change in config to suit Your needs)|
+|Super + E|File Manager (Default is Nemo, change in config to suit your needs)|
 
 |Terminal Apps||
 |---|---|

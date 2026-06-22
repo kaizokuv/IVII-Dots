@@ -89,7 +89,7 @@ hl.bind("SUPER + W", hl.dsp.exec_cmd("brave"), { description = "App: Browser" })
 hl.bind("SUPER + Z", hl.dsp.exec_cmd("app.zen_browser.zen"))
 hl.bind("SUPER + P", hl.dsp.exec_cmd("spotify"))
 hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("vesktop"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd("dolphin"), { description = "App: File manager" })
+hl.bind("SUPER + E", hl.dsp.exec_cmd("nemo"), { description = "App: File manager" })
 
 -- Kitty and stuff
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "App: Terminal" })
@@ -495,6 +495,7 @@ hl.window_rule({ match = { class = "floating-kitty" }, opacity = "0.8 override 0
 hl.window_rule({ match = { class = "floating-kittyfm" }, opacity = "0.8 override 0.65 override" })
 hl.window_rule({ match = { class = "vesktop" }, opacity = "0.9 override" })
 hl.window_rule({ match = { class = "steam" }, opacity = "0.9 override" })
+hl.window_rule({ match = { class = "nemo" }, opacity = "0.85 override" })
 
 -- Floating kitty
 hl.window_rule({

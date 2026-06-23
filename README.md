@@ -47,7 +47,7 @@ git clone https://github.com/kaizokuv/IVII-Dots.git
 cd IVII-Dots
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
-cp -r ~/IVII-Dots/noctalia/ # for noctalia configurations
+cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
 # Everything after this is optional
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
@@ -104,7 +104,7 @@ cd IVII-Dots
 git pull
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
-cp -r ~/IVII-Dots/noctalia/ # for noctalia configurations
+cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
 # Everything after this is optional
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same

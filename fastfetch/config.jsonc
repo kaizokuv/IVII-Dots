@@ -21,12 +21,12 @@
   "modules": [
     {
       "type": "title",
-      "key": "  User",
+      "key": "  Un Que?",
       "format": "{6} {7} {8}"
     },
     {
       "type": "custom",
-      "format": "┌─────────────────────────────────────────────────────┐"
+      "format": "┌──────────────────────────────────────────────────────┐"
     },
     {
       "type": "custom",
@@ -34,78 +34,83 @@
       "format": "A Potato Chip"
     },
     {
-      "type": "custom",
-      "key": "  OS",
-      "format": "Artix Btw"
-    },
-    {
       "type": "kernel",
-      "key": "  Kernel",
+      "key": "  The loading thingy version",
       "format": "{2}"
     },
     {
+      "type": "custom",
+      "key": "  The thingy after the loading thingy",
+      "format": "Artix Btw"
+    },
+    {
       "type": "packages",
-      "key": "  Packages"
+      "key": "  How much bloat we got"
     },
     {
       "type": "display",
-      "key": "  Display",
+      "key": "  Ze screen",
       "format": "{1}x{2} @ {3}Hz [{7}]"
     },
     {
       "type": "terminal",
-      "key": "  Terminal"
+      "key": "  Typy types"
     },
     {
       "type": "wm",
-      "key": "  WM",
+      "key": "  Where display?",
+      "format": "{2}"
+    },
+    {
+      "type": "media",
+      "key": "  Vibes",
       "format": "{2}"
     },
     {
       "type": "custom",
-      "format": "└─────────────────────────────────────────────────────┘"
+      "format": "└──────────────────────────────────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "┌─────────────────────────────────────────────────────┐"
+      "format": "┌──────────────────────────────────────────────────────┐"
     },
     {
       "type": "cpu",
       "format": "{1} @ {7}",
-      "key": "  CPU"
+      "key": "  Ze brains"
     },
     {
       "type": "gpu",
       "format": "{1} {2}",
-      "key": "  GPU"
+      "key": "  The renderer"
     },
     {
       "type": "battery",
-      "key":"  Battery"
+      "key":"  Da juice"
     },
     {
       "type": "gpu",
       "format": "{3}",
-      "key": "  GPU Driver"
+      "key": "  The renderer's brain"
     },
     {
       "type": "memory",
-      "key": "  Memory "
+      "key": "  HE HAS RAM, GET HIM"
     },
     {
       "type": "disk",
-      "key": "  Days SystemD Free ",
+      "key": "  Days SystemD Free",
       "folders": "/",
       "format": "{years} Years And {days-of-year} Days ({years-fraction} Years)"
     },
     {
       "type": "uptime",
-      "key": "  Uptime "
+      "key": "  How long you gonna be here for?"
     },
     {
       "type": "custom",
-      "format": "└─────────────────────────────────────────────────────┘"
+      "format": "└──────────────────────────────────────────────────────┘"
     }
   ]
 }

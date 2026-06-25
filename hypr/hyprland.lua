@@ -54,6 +54,7 @@ hl.bind("CTRL + SUPER + B", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center
 hl.bind("CTRL + SUPER + W", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center network"))
 hl.bind("CTRL + SUPER + S", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center system"))
 hl.bind("CTRL + SUPER + C", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center calendar"))
+hl.bind("CTRL + SUPER + M", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center monitor"))
 hl.bind("SHIFT + SUPER + W", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center weather"))
 
 -- Wallpaper
@@ -87,9 +88,9 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. " media previous"), { locked = t
 -- Apps
 hl.bind("SUPER + W", hl.dsp.exec_cmd("brave"), { description = "App: Browser" })
 hl.bind("SUPER + Z", hl.dsp.exec_cmd("app.zen_browser.zen"))
-hl.bind("SUPER + P", hl.dsp.exec_cmd("spotify"))
 hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("vesktop"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nemo"), { description = "App: File manager" })
+hl.bind("SUPER + P", hl.dsp.exec_cmd("spotify"))
 
 -- Kitty and stuff
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "App: Terminal" })

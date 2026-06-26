@@ -7,8 +7,6 @@ local ipc = "noctalia msg"
 -- Startup
 hl.on("hyprland.start", function()
 	hl.exec_cmd("noctalia")
-	hl.exec_cmd("brave-browser")
-	hl.exec_cmd("spotify")
 end)
 
 -- Blur effects
@@ -512,16 +510,4 @@ hl.window_rule({
 	float = true,
 	size = "900 500",
 	move = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
-})
-
--- Spotify
-hl.window_rule({
-	match = { class = "Spotify" },
-	workspace = 2,
-})
-
--- Brave
-hl.window_rule({
-	match = { class = "brave-browser" },
-	workspace = 1,
 })

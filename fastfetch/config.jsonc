@@ -47,11 +47,6 @@
       "key": "  How much bloat we got"
     },
     {
-      "type": "display",
-      "key": "  Ze screen",
-      "format": "{1}x{2} @ {3}Hz [{7}]"
-    },
-    {
       "type": "terminal",
       "key": "  Typy types"
     },

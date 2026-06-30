@@ -5,9 +5,9 @@
     "type": "file",
     "source": "~/.config/fastfetch/mylogo.txt",
     "padding": {
-      "top": 7,
+      "top": 3,
       "bottom": 7,
-      "left": 2,
+      "left": 5,
       "right": 7
     }
   },
@@ -34,14 +34,13 @@
       "format": "A Potato Chip"
     },
     {
+      "type": "os",
+      "key": "  The BTW",
+    },
+    {
       "type": "kernel",
       "key": "  The loading thingy version",
       "format": "{2}"
-    },
-    {
-      "type": "custom",
-      "key": "  The thingy after the loading thingy",
-      "format": "Artix Btw"
     },
     {
       "type": "packages",
@@ -60,43 +59,6 @@
       "type": "wm",
       "key": "  Where display?",
       "format": "{2}"
-    },
-    {
-      "type": "media",
-      "key": "  Vibes",
-      "format": "{2}"
-    },
-    {
-      "type": "custom",
-      "format": "└──────────────────────────────────────────────────────┘"
-    },
-    "break",
-    {
-      "type": "custom",
-      "format": "┌──────────────────────────────────────────────────────┐"
-    },
-    {
-      "type": "cpu",
-      "format": "{1} @ {7}",
-      "key": "  Ze brains"
-    },
-    {
-      "type": "gpu",
-      "format": "{1} {2}",
-      "key": "  The renderer"
-    },
-    {
-      "type": "battery",
-      "key":"  Da juice"
-    },
-    {
-      "type": "gpu",
-      "format": "{3}",
-      "key": "  The renderer's brain"
-    },
-    {
-      "type": "memory",
-      "key": "  HE HAS RAM, GET HIM"
     },
     {
       "type": "disk",

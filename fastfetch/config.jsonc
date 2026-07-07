@@ -5,7 +5,7 @@
     "type": "file",
     "source": "~/.config/fastfetch/mylogo.txt",
     "padding": {
-      "top": 3,
+      "top": 2,
       "bottom": 7,
       "left": 5,
       "right": 7
@@ -26,7 +26,7 @@
     },
     {
       "type": "custom",
-      "format": "┌──────────────────────────────────────────────────────┐"
+      "format": "┌─────────────────────────────────────────────────────┐"
     },
     {
       "type": "custom",
@@ -44,7 +44,8 @@
     },
     {
       "type": "packages",
-      "key": "  How much bloat we got"
+      "key": "  How much bloat we got",
+      "format": "{all} packages"
     },
     {
       "type": "terminal",
@@ -63,11 +64,11 @@
     },
     {
       "type": "uptime",
-      "key": "  How long you gonna be here for?"
+      "key": "  How long you've been here for?"
     },
     {
       "type": "custom",
-      "format": "└──────────────────────────────────────────────────────┘"
+      "format": "└─────────────────────────────────────────────────────┘"
     }
   ]
 }

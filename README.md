@@ -6,7 +6,14 @@
 <h2> Demo Showcase </h2>
 </div>
 
-https://github.com/user-attachments/assets/30abbfa8-e7a1-4701-9f4f-42027ea9b1c6
+
+
+<div align="center">
+<h2> Screenshots </h2>
+</div>
+
+
+
 
 <div align="center">
 <h2> Introduction </h2>
@@ -119,111 +126,20 @@ cp -r ~/IVII-Dots/Wallpapers/ ~/Pictures/Wallpapers/ # for wallpapers (careful a
 <h2> Keybinds </h2>
 </div>
 
-I'm a big fan of saying "no" to the mouse, so just about anything you can think of has a bind. Here's a list of everything :D (Cheatsheet coming soon)
+I'm a big fan of saying "no" to the mouse, so just about anything you can think of has a bind. Here's a list of some basics to get you started :D
 
-
-|Normal General/Random Stuff||
-|---|---|
 |Keybind|What it does|
+|---|---|
 |Super + Tab|Launcher|
 |Super + I|Settings for Noctalia|
-|Super + V|Clipboard|
-|Super + Period|Emojis|
-|Super + Q|Close Window|
-|Super + Shift + Alt + Q|Forcefully Killing a Program|
-|Super + Shift + S|Screenshot (Saves to clipboard, working on file output)|
-
-|Noctalia Control Center Panels||
-|---|---|
-|Keybind|What it does|
 |Super + N|Control Center Main Panel|
-|Super + M|Media Panel|
-|Super + A|Audio Panel|
-|Super + Slash|Notifications Panel|
-|Ctrl + Super + B|Bluetooth Panel|
-|Ctrl + Super + W|Network Panel|
-|Ctrl + Super + S|Systems Panel (System monitoring)|
-|Ctrl + Super + C|Calender Panel|
-|Shift + Super + W|Weather Panel|
-
-|Wallpapers||
-|---|---|
-|Keybind|What it does|
-|Ctrl + Super + T|Walpaper Panel|
-|Super + Alt + T|Random Wallpaper|
-
-|Toggles||
-|---|---|
-|Keybind|What it does|
-|Shift + Super + C|Toggle Caffeine Mode (Disables Idling)|
-|Ctrl + Super + P|Toggle Power Profiles (Needs power-profiles-daemon)|
-|Ctrl + Super + D|Toggle Do Not Disturb Mode|
-
-|Apps||
-|---|---|
-|Keybind|What it does|
-|Super + W|Browser (Default is Brave, change in config to suit Your needs)|
-|Super + Z|Zen Browser (I like to seperate work and personal life)|
-|Super + P|Music Player (Default is Spotify, change in config to suit Your needs)|
-|Super + Ctrl + V|Vesktop (Change to whatever your discord client is)|
-|Super + E|File Manager (Default is Nemo, change in config to suit your needs)|
-
-|Terminal Apps||
-|---|---|
-|Keybind|What it does|
+|Ctrl + Super + T|Wallpaper Panel|
 |Super + Return / Super + T|Terminal ((Default is Kitty, change in config to suit Your needs)|
 |Super + C|Neovim (Change it to any code editor tbh)|
-|Super + B|Btop (I wasn't joking, i have keybinds for everything)|
-|Ctrl + Super + L|[Late.sh](https://github.com/mpiorowski/late-sh)|
-
-|Session Controls||
-|---|---|
-|Keybind|What it does|
-|Super + L|Lock Screen|
-|Shift + Super + L|Logout of Session|
-|Shift + Super + R|Reboot|
-|Ctrl + Alt + Delete|Session Panel|
-|Ctrl + Shift + Alt + Super + Delete|Shutdown|
-
-|Configuration Files||
-|---|---|
-|Keybind|What it does|
-|Super + H|Hyprland.lua File|
-|Super + K|Kitty.conf File|
-|Ctrl + Super + F|Config.fish File|
-
-|Special Workspace||
-|---|---|
-|Keybind|What it does|
-|Super + S|Toggle Special Workspace|
-|Super + Alt + S|Send Current Window to Special Workspace and Follows|
-
-|Window Focusing/Movement/Others||
-|---|---|
-|Keybind|What it does|
-|Super + Arrowkeys|Focus in that Direction|
-|Super + Shift + Arrowkeys|Move Windows in that Direction|
-|Super + F|Fullscreen|
-|Super + D|Maximise|
-|Shift + Super + P|Pin Window|
-|Super + Semicolon|Reduce Split Ratio of Focused Window|
-|Super + Apostrophe|Increase Split Ratio of Focused Window|
-|Super + Alt + Space|Float Focused Window|
-|Super + Left Mouse Button|Drag Window|
-|Super + Right Mouse Button|Resize Window|
-
-|Window Workspaces||
-|---|---|
-|Keybind|What it does|
-|Super + Numberkey/Numpad Key|Go to Workspace|
-|Super + Alt + Numberkey/Numpad Key|Send Focused Window to Workspace|
-|Ctrl + Super + Left/Right Arrowkey|Move to Next/Previous Workspace|
-
-|Touchpad Gestures (Laptops)||
-|---|---|
-|Gesture|What it does|
-|3 Finger Swipe|Moves Focused Window in Swiped Direction|
-|4 Finger Swipe|Changes Workspaces|
+|Super + W|Browser (Default is Brave, change in config to suit Your needs)|
+|Super + E|File Manager (Default is Nemo, change in config to suit your needs)|
+|Super + Q|Close Window|
+|Super + Comma|Cheatsheat|
 
 <div align="center">
 <h2> Contributions </h2>

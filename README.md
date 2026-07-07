@@ -69,6 +69,8 @@ Screen Recorder - OBS
 
 Code Editor - LazyVim
 
+Screenshot Tool - [Rishot](https://github.com/Gakuseei/rishot)
+
 <div align="center">
 <h2> Installation </h2>
 </div>
@@ -111,6 +113,7 @@ You will also need to install the following for things to work as seemlessly as 
 - power-profiles-daemon
 - Vesktop
 - [Late.sh](https://github.com/mpiorowski/late-sh)
+- [Rishot](https://github.com/Gakuseei/rishot)
 - probably some others im forgetting :D
 
 For starship, you will have to add this into your shell config (fish, bash, zsh)

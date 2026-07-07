@@ -102,15 +102,40 @@ hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("rishot"), { description = "Rishot 
 hl.bind("Print", hl.dsp.exec_cmd("rishot monitor"), { description = "Rishot (Whole Monitor)" })
 
 -- Media keys and brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. " volume-up 2"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. " volume-down 2"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. " volume-mute"), { locked = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(ipc .. " mic-mute"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. " brightness-up"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. " brightness-down"), { locked = true, repeating = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. " media toggle"), { locked = true })
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. " media next"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. " media previous"), { locked = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd(ipc .. " volume-up 2"),
+	{ locked = true, repeating = true },
+	{ description = "Raise Volume (2%)" }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd(ipc .. " volume-down 2"),
+	{ locked = true, repeating = true },
+	{ description = "Reduce Volume (2%)" }
+)
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. " volume-mute"), { locked = true }, { description = "Mute Audio" })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(ipc .. " mic-mute"), { locked = true }, { description = "Mute Mic" })
+hl.bind(
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd(ipc .. " brightness-up"),
+	{ locked = true, repeating = true },
+	{ description = "Increase Brightness (5%)" }
+)
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd(ipc .. " brightness-down"),
+	{ locked = true, repeating = true },
+	{ description = "Decrease Brightness (5%)" }
+)
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. " media toggle"), { locked = true }, { description = "Play/Pause" })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. " media next"), { locked = true }, { description = "Next Track" })
+hl.bind(
+	"XF86AudioPrev",
+	hl.dsp.exec_cmd(ipc .. " media previous"),
+	{ locked = true },
+	{ description = "Previous Track" }
+)
 
 -- Apps
 hl.bind("SUPER + W", hl.dsp.exec_cmd("brave"), { description = "Brave Browser" })
@@ -211,7 +236,7 @@ hl.bind(
 )
 hl.bind("SUPER + ALT + Space", function()
 	hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-	hl.dispatch(hl.dsp.exec_cmd("hyprctl dispatch centerwindow"))({ description = "Float Window" })
+	hl.dispatch(hl.dsp.exec_cmd("hyprctl dispatch centerwindow"), { description = "Float Window" })
 end)
 hl.bind(
 	"SUPER + D",
@@ -580,6 +605,6 @@ hl.window_rule({
 hl.window_rule({
 	match = { class = "floating-kittyfm" },
 	float = true,
-	size = "1000 700",
+	size = "850 550",
 	move = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
 })

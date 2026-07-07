@@ -75,9 +75,12 @@ Code Editor - LazyVim
 
 There is an install script on the way which will come soon (maybe), for now things will have to be done manually
 
+Before installing, please make sure that you have [Noctalia V5](https://noctalia.dev/) installed
+
 ```bash
 git clone https://github.com/kaizokuv/IVII-Dots.git
-cd IVII-Dots
+# Create the directories for this to work
+mkdir ~/Pictures/Wallpapers/
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations

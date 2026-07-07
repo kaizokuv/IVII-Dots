@@ -95,7 +95,6 @@ cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
-cp -r ~/IVII-Dots/Wallpapers/ ~/Pictures/Wallpapers/ # for wallpapers (careful as it will replace your current folder if you have one so please backup first)
 ```
 
 You will also need to install the following for things to work as seemlessly as they do for me
@@ -154,7 +153,6 @@ cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
-cp -r ~/IVII-Dots/Wallpapers/ ~/Pictures/Wallpapers/ # for wallpapers (careful as it will replace your current folder if you have one so please backup first)
 ```
 
 <div align="center">

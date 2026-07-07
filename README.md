@@ -1,19 +1,45 @@
 <div align="center">
 <h1>𝕀𝕍𝕀𝕀</h1>
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/kaizokuv/IVII-Dots?style=for-the-badge&logo=Files&logoColor=%236082B6"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/kaizokuv/IVII-Dots?display_timestamp=committer&style=for-the-badge&logo=git&logoColor=%236082B6"> <img alt="GitHub License" src="https://img.shields.io/github/license/kaizokuv/IVII-Dots?style=for-the-badge&logo=github&logoColor=6082B6"> 
 </div>
 
 <div align="center">
 <h2> Demo Showcase </h2>
 </div>
 
-
+https://github.com/user-attachments/assets/8e4a5430-51bb-4bba-83f8-e71d7a093b7e
 
 <div align="center">
 <h2> Screenshots </h2>
 </div>
 
+<div align="center">
+<table>
+<tr>
+<td align="center">
+<img src="assets/photos/image1.jpeg" width="450"><br>
+<b>The Ricing Screenshot :D</b><br>
+</td>
 
+<td align="center">
+<img src="assets/photos/image2.jpeg" width="450"><br>
+<b>Settings and Notepad</b><br>
+</td>
+</tr>
 
+<tr>
+<td align="center">
+<img src="assets/photos/image3.jpeg" width="450"><br>
+<b>Oooooooooh Music~</b><br>
+</td>
+
+<td align="center">
+<img src="assets/photos/image4.png" width="450"><br>
+<b>Well Isn't This Calming...</b><br>
+</td>
+</tr>
+</table>
+</div>
 
 <div align="center">
 <h2> Introduction </h2>
@@ -55,6 +81,7 @@ cd IVII-Dots
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
+cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # custom noctalia cheatsheet plugin
 # Everything after this is optional
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
@@ -112,6 +139,7 @@ git pull
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
+cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # custom noctalia cheatsheet plugin
 # Everything after this is optional
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
@@ -139,7 +167,13 @@ I'm a big fan of saying "no" to the mouse, so just about anything you can think 
 |Super + W|Browser (Default is Brave, change in config to suit Your needs)|
 |Super + E|File Manager (Default is Nemo, change in config to suit your needs)|
 |Super + Q|Close Window|
-|Super + Comma|Cheatsheat|
+|Super + Comma|Cheatsheet|
+
+<div align="center">
+<h2> Disclaimer </h2>
+</div>
+
+While I did make most of these configs myself, I did use Claude for some light work, such as merging everything into one folder to push and manage easily (previously it was all over the place), as well as some of the code, making sure there are no bugs for the configs and the custom plugin, so some of the code is AI-generated, just gotta be transparent
 
 <div align="center">
 <h2> Contributions </h2>
@@ -148,3 +182,9 @@ I'm a big fan of saying "no" to the mouse, so just about anything you can think 
 [End-4 Dotfiles](https://github.com/end-4/dots-hyprland) - These were my first dots that i used and were the base for about half of the keybinds and hyprland animations you see
 
 [Noctalia](https://github.com/noctalia-dev/noctalia) - The shell, bloody gorgeous and an inspiration for my own shell to come
+
+<div align="center">
+<h2> Copying and License </h2>
+</div>
+
+Yeah I'm gonna be honest, do whatever you want, take it, use it, modify it, but if you gonna yoink some stuff, just be sure to give contribution thanks to me and the people I've given thanks to, since mine, and by right, yours too if you decide to yoink this, wouldn't exist without them and their work

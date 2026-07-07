@@ -82,6 +82,7 @@ Before installing, please make sure that you have [Noctalia V5](https://noctalia
 ```bash
 git clone https://github.com/kaizokuv/IVII-Dots.git
 # Create the directories for this to work
+mkdir ~/Pictures/
 mkdir ~/Pictures/Wallpapers/
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
@@ -93,7 +94,7 @@ cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the s
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config
-cp -r ~/IVII-Dots/starship.toml/ ~/.config/  # for starship terminal prompts
+cp ~/IVII-Dots/starship.toml/ ~/.config/  # for starship terminal prompts
 cp -r ~/IVII-Dots/Wallpapers/ ~/Pictures/Wallpapers/ # for wallpapers (careful as it will replace your current folder if you have one so please backup first)
 ```
 
@@ -152,7 +153,7 @@ cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the s
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
-cp -r ~/IVII-Dots/starship.toml/ ~/.config/  # for starship terminal prompts
+cp ~/IVII-Dots/starship.toml/ ~/.config/  # for starship terminal prompts
 cp -r ~/IVII-Dots/Wallpapers/ ~/Pictures/Wallpapers/ # for wallpapers (careful as it will replace your current folder if you have one so please backup first)
 ```
 

@@ -23,54 +23,83 @@ hl.layer_rule({
 -- Keybinds
 
 -- Launcher
-hl.bind("SUPER + Tab", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
+hl.bind("SUPER + Tab", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"), { description = "Launcher" })
 
 -- Window switcher
 -- hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher")) (WIP)
 
 -- Cheatsheet
+hl.bind(
+	"SUPER + Comma",
+	hl.dsp.exec_cmd("noctalia msg panel-toggle kaizoku/keybind-cheatsheet:cheatsheet"),
+	{ description = "Cheatsheet" }
+)
 
 -- Settings
-hl.bind("SUPER + I", hl.dsp.exec_cmd(ipc .. " settings-toggle"))
+hl.bind("SUPER + I", hl.dsp.exec_cmd(ipc .. " settings-toggle"), { description = "Settings" })
 
 -- Clipboard
-hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. " panel-toggle clipboard"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. " panel-toggle clipboard"), { description = "Clipboard" })
 
 -- Emojis
-hl.bind("SUPER + Period", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher '/emo'"))
+hl.bind("SUPER + Period", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher '/emo'"), { description = "Emojis" })
 
 -- Closing stuff
-hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Window: Close" })
-hl.bind("SUPER + SHIFT + ALT + Q", hl.dsp.exec_cmd("hyprctl kill"), { description = "Window: Forcefully zap a window" })
+hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Close Window" })
+hl.bind("SUPER + SHIFT + ALT + Q", hl.dsp.exec_cmd("hyprctl kill"), { description = "Forcefully Close a Window" })
 
 -- Control center
-hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center"))
-hl.bind("SUPER + M", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center media"))
-hl.bind("SUPER + A", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center audio"))
-hl.bind("SUPER + Slash", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center notifications"))
-hl.bind("CTRL + SUPER + B", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center bluetooth"))
-hl.bind("CTRL + SUPER + W", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center network"))
-hl.bind("CTRL + SUPER + S", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center system"))
-hl.bind("CTRL + SUPER + C", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center calendar"))
-hl.bind("CTRL + SUPER + M", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center monitor"))
-hl.bind("SHIFT + SUPER + W", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center weather"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center"), { description = "Control Center" })
+hl.bind("SUPER + M", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center media"), { description = "Media Tab" })
+hl.bind("SUPER + A", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center audio"), { description = "Audio Tab" })
+hl.bind(
+	"SUPER + Slash",
+	hl.dsp.exec_cmd(ipc .. " panel-toggle control-center notifications"),
+	{ description = "Notifications Tab" }
+)
+hl.bind(
+	"CTRL + SUPER + B",
+	hl.dsp.exec_cmd(ipc .. " panel-toggle control-center bluetooth"),
+	{ description = "Bluetooth Tab" }
+)
+hl.bind(
+	"CTRL + SUPER + W",
+	hl.dsp.exec_cmd(ipc .. " panel-toggle control-center network"),
+	{ description = "Network Tab" }
+)
+hl.bind(
+	"CTRL + SUPER + S",
+	hl.dsp.exec_cmd(ipc .. " panel-toggle control-center system"),
+	{ description = "Systems Tab" }
+)
+hl.bind(
+	"CTRL + SUPER + C",
+	hl.dsp.exec_cmd(ipc .. " panel-toggle control-center calendar"),
+	{ description = "Calender Tab" }
+)
+hl.bind(
+	"CTRL + SUPER + M",
+	hl.dsp.exec_cmd(ipc .. " panel-toggle control-center monitor"),
+	{ description = "Monitors Tab" }
+)
+hl.bind(
+	"SHIFT + SUPER + W",
+	hl.dsp.exec_cmd(ipc .. " panel-toggle control-center weather"),
+	{ description = "Weather Tab" }
+)
 
 -- Wallpaper
-hl.bind("CTRL + SUPER + T", hl.dsp.exec_cmd(ipc .. " panel-toggle wallpaper"))
-hl.bind("SUPER + ALT + T", hl.dsp.exec_cmd(ipc .. " wallpaper-random"))
+hl.bind("CTRL + SUPER + T", hl.dsp.exec_cmd(ipc .. " panel-toggle wallpaper"), { description = "Wallpaper Changer" })
+hl.bind("SUPER + ALT + T", hl.dsp.exec_cmd(ipc .. " wallpaper-random"), { description = "Toggle a Random Wallpaper" })
 
 -- Toggles
-hl.bind("SHIFT + SUPER + C", hl.dsp.exec_cmd(ipc .. " caffeine-toggle"))
-hl.bind("CTRL + SUPER + P", hl.dsp.exec_cmd(ipc .. " power-cycle"))
-hl.bind("CTRL + SUPER + D", hl.dsp.exec_cmd(ipc .. " notification-dnd-toggle"))
+hl.bind("SHIFT + SUPER + C", hl.dsp.exec_cmd(ipc .. " caffeine-toggle"), { description = "Toggle Caffiene" })
+hl.bind("CTRL + SUPER + P", hl.dsp.exec_cmd(ipc .. " power-cycle"), { description = "Toggle Power Profiles" })
+hl.bind("CTRL + SUPER + D", hl.dsp.exec_cmd(ipc .. " notification-dnd-toggle"), { description = "Toggle DND" })
 
 -- Screenshot
-hl.bind(
-	"SUPER + SHIFT + S",
-	hl.dsp.exec_cmd(
-		"hyprshot --freeze --mode region --silent --clipboard --output-folder ~/Pictures/Screenshots --filename screenshot_$(date +%Y%m%d_%H%M%S).png"
-	)
-)
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("rishot"), { description = "Rishot (Regional)" })
+hl.bind("Print", hl.dsp.exec_cmd("rishot monitor"), { description = "Rishot (Whole Monitor)" })
 
 -- Media keys and brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. " volume-up 2"), { locked = true, repeating = true })
@@ -84,113 +113,156 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. " media next"), { locked = true 
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. " media previous"), { locked = true })
 
 -- Apps
-hl.bind("SUPER + W", hl.dsp.exec_cmd("brave"), { description = "App: Browser" })
-hl.bind("SUPER + Z", hl.dsp.exec_cmd("app.zen_browser.zen"))
-hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("vesktop"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd("nemo"), { description = "App: File manager" })
-hl.bind("SUPER + P", hl.dsp.exec_cmd("spotify"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("brave"), { description = "Brave Browser" })
+hl.bind("SUPER + Z", hl.dsp.exec_cmd("app.zen_browser.zen"), { description = "Zen Browser" })
+hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("vesktop"), { description = "Vesktop" })
+hl.bind("SUPER + E", hl.dsp.exec_cmd("nemo"), { description = "Nemo" })
+hl.bind("SUPER + P", hl.dsp.exec_cmd("spotify"), { description = "Spotify" })
 
--- Kitty and stuff
-hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "App: Terminal" })
-hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"))
+-- Terminal and TUIs
+hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "Kitty" })
+hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"), { description = "Kitty" })
 -- hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e /usr/bin/yazi"), { description = "App: File manager" })
-hl.bind("SUPER + C", hl.dsp.exec_cmd("kitty -e nvim"), { description = "App: Code editor" })
-hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("kitty -e /home/kaizoku/.local/bin/late"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("kitty -e btop"))
+hl.bind("SUPER + C", hl.dsp.exec_cmd("kitty -e nvim"), { description = "Neovim" })
+hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("kitty -e /home/kaizoku/.local/bin/late"), { description = "Late.sh" })
+hl.bind("SUPER + B", hl.dsp.exec_cmd("kitty -e btop"), { description = "Btop" })
 
--- Files
-hl.bind("SUPER + H", hl.dsp.exec_cmd("kitty -e nvim ~/.config/hypr/hyprland.lua"))
-hl.bind("CTRL + SUPER + F", hl.dsp.exec_cmd("kitty -e nvim ~/.config/fish/config.fish"))
-hl.bind("SUPER + K", hl.dsp.exec_cmd("kitty -e nvim ~/.config/kitty/kitty.conf"))
+-- Config Files
+hl.bind(
+	"SUPER + H",
+	hl.dsp.exec_cmd("kitty -e nvim ~/.config/hypr/hyprland.lua"),
+	{ description = "Hyprland Lua Config" }
+)
+hl.bind(
+	"CTRL + SUPER + F",
+	hl.dsp.exec_cmd("kitty -e nvim ~/.config/fish/config.fish"),
+	{ description = "Fish Config" }
+)
+hl.bind("SUPER + K", hl.dsp.exec_cmd("kitty -e nvim ~/.config/kitty/kitty.conf"), { description = "Kitty Config" })
 
 -- For ricing screenshots
-hl.bind("SHIFT + SUPER + Return", hl.dsp.exec_cmd("kitty --class floating-kitty"))
-hl.bind("SHIFT + SUPER + T", hl.dsp.exec_cmd("kitty --class floating-kittyfm"))
-hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("kitty --class floating-kittyfm -e cava"))
+hl.bind(
+	"SHIFT + SUPER + Return",
+	hl.dsp.exec_cmd("kitty --class floating-kitty"),
+	{ description = "Kitty (Floating and Centred)" }
+)
+hl.bind(
+	"SHIFT + SUPER + T",
+	hl.dsp.exec_cmd("kitty --class floating-kittyfm"),
+	{ description = "Kitty (Floating and Spawns Where The Mouse Is)" }
+)
+hl.bind(
+	"SUPER + ALT + C",
+	hl.dsp.exec_cmd("kitty --class floating-kittyfm -e cava"),
+	{ description = "Cava (Floating and Spawns Where The Mouse Is)" }
+)
 
--- Special
-hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"))
-hl.bind("SUPER + ALT + S", hl.dsp.window.move({ workspace = "special:special", follow = true }))
+-- Special Workspace
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"), { description = "Toggles Special Workspace" })
+hl.bind(
+	"SUPER + ALT + S",
+	hl.dsp.window.move({ workspace = "special:special", follow = true }),
+	{ description = "Send To Special Workspace" }
+)
 
 -- Lock and session stuff
-hl.bind("SUPER + L", hl.dsp.exec_cmd(ipc .. " session lock"))
-hl.bind("CTRL + SHIFT + ALT + SUPER + Delete", hl.dsp.exec_cmd(ipc .. " session shutdown"))
-hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(ipc .. " panel-toggle session"))
-hl.bind("SHIFT + SUPER + L", hl.dsp.exec_cmd(ipc .. " session logout"))
-hl.bind("SHIFT + SUPER + R", hl.dsp.exec_cmd(ipc .. " session reboot"))
+hl.bind("SUPER + L", hl.dsp.exec_cmd(ipc .. " session lock"), { description = "Lock" })
+hl.bind(
+	"CTRL + SHIFT + ALT + SUPER + Delete",
+	hl.dsp.exec_cmd(ipc .. " session shutdown"),
+	{ description = "Shutdown" }
+)
+hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(ipc .. " panel-toggle session"), { description = "Session Menu" })
+hl.bind("SHIFT + SUPER + L", hl.dsp.exec_cmd(ipc .. " session logout"), { description = "Logout" })
+hl.bind("SHIFT + SUPER + R", hl.dsp.exec_cmd(ipc .. " session reboot"), { description = "Reboot" })
 
--- Window
--- Focusing
-hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Window: Move" })
-hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Window: Resize" })
--- bind = SUPER + ←/↑/→/↓,, -- Focus in direction
+-- Window Movements/Focusing
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move Window" })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize Window" })
 for i = 1, 6 do
 	local arrowkey = { "Left", "Right", "Up", "Down", "BracketLeft", "BracketRight" }
 	local focusdir = { "l", "r", "u", "d", "l", "r" }
-	hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }))
+	hl.bind(
+		"SUPER + " .. arrowkey[i],
+		hl.dsp.focus({ direction = focusdir[i] }),
+		{ description = "Focus in Direction" }
+	)
 end
-
--- bind = SUPER + SHIFT, ←/↑/→/↓,, -- Move in direction
 for i = 1, 4 do
 	local arrowkey = { "Left", "Right", "Up", "Down" }
 	local focusdir = { "l", "r", "u", "d" }
-	hl.bind("SUPER + SHIFT + " .. arrowkey[i], hl.dsp.window.move({ direction = focusdir[i] }))
+	hl.bind(
+		"SUPER + SHIFT + " .. arrowkey[i],
+		hl.dsp.window.move({ direction = focusdir[i] }),
+		{ description = "Move Window in Direction" }
+	)
 end
-
--- Window split ratio
--- binde = SUPER, ;/',, -- Adjust split ratio
-hl.bind("SUPER + Semicolon", hl.dsp.layout("splitratio -0.1"), { repeating = true })
-hl.bind("SUPER + Apostrophe", hl.dsp.layout("splitratio +0.1"), { repeating = true })
-
--- Positioning mode
--- Float and center in one bind
+hl.bind(
+	"SUPER + Semicolon",
+	hl.dsp.layout("splitratio -0.1"),
+	{ repeating = true },
+	{ description = "Decrease Window Ratio" }
+)
+hl.bind(
+	"SUPER + Apostrophe",
+	hl.dsp.layout("splitratio +0.1"),
+	{ repeating = true },
+	{ description = "Increase Window Ratio" }
+)
 hl.bind("SUPER + ALT + Space", function()
 	hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-	hl.dispatch(hl.dsp.exec_cmd("hyprctl dispatch centerwindow"))
+	hl.dispatch(hl.dsp.exec_cmd("hyprctl dispatch centerwindow"))({ description = "Float Window" })
 end)
 hl.bind(
 	"SUPER + D",
 	hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),
-	{ description = "Window: Maximize" }
+	{ description = "Maximize Window" }
 )
 hl.bind(
 	"SUPER + F",
 	hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
-	{ description = "Window: Fullscreen" }
+	{ description = "Fullscreen Window" }
 )
-hl.bind("SHIFT + SUPER + P", hl.dsp.window.pin(), { description = "Window: Pin" })
+hl.bind("SHIFT + SUPER + P", hl.dsp.window.pin(), { description = "Pin Window" })
 
--- bind = SUPER+ALT, Hash,, -- Send to workspace -- (2, 2, 3,...)
--- Send to workspace (number row)
+-- Workspaces
 for i = 1, 10 do
 	local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
-	hl.bind("SUPER + ALT + code:" .. numberkey[i], hl.dsp.window.move({ workspace = i, follow = false }))
+	hl.bind(
+		"SUPER + ALT + code:" .. numberkey[i],
+		hl.dsp.window.move({ workspace = i, follow = false }),
+		{ description = "Move Window to Workspace" }
+	)
 end
--- Send to workspace (numpad)
 for i = 1, 10 do
 	local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
-	hl.bind("SUPER + ALT + code:" .. numpadkey[i], hl.dsp.window.move({ workspace = i, follow = false }))
+	hl.bind(
+		"SUPER + ALT + code:" .. numpadkey[i],
+		hl.dsp.window.move({ workspace = i, follow = false }),
+		{ description = "Move Window to Workspace (Numpad)" }
+	)
 end
-
--- Workspace
--- Switching
--- bind = SUPER, Hash,, -- Focus workspace -- (1, 2, 3,...)
 for i = 1, 10 do
 	local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
-	hl.bind("SUPER + code:" .. numberkey[i], hl.dsp.focus({ workspace = i }))
+	hl.bind("SUPER + code:" .. numberkey[i], hl.dsp.focus({ workspace = i }), { description = "Switch Workspaces" })
 end
--- Focus workspace (numpad)
 for i = 1, 10 do
 	local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
-	hl.bind("SUPER + code:" .. numpadkey[i], hl.dsp.focus({ workspace = i }))
+	hl.bind(
+		"SUPER + code:" .. numpadkey[i],
+		hl.dsp.focus({ workspace = i }),
+		{ description = "Switch Workspaces (Numpad)" }
+	)
 end
-
--- bind = CTRL+SUPER, ←/→,, -- Focus left/right
 for i = 1, 2 do
 	local key = { "CTRL + SUPER + " }
 	local keycombos = { key[1] .. "Right", key[1] .. "Left" }
 	local prefix = { "r+", "r-" }
-	hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+	hl.bind(
+		keycombos[i],
+		hl.dsp.focus({ workspace = prefix[i] .. "1" }),
+		{ description = "Go to Previous/Next Workspace" }
+	)
 end
 
 -- Window configs and stuff for designs and stuff (Copied fully from II)
@@ -482,7 +554,7 @@ hl.config({
 })
 
 -- For Noctalia Color templates
-require("noctalia")
+require("noctalia").apply_theme()
 
 -- Disable blur for every window
 hl.window_rule({ match = { class = ".*" }, no_blur = true })
@@ -501,13 +573,13 @@ hl.window_rule({
 	match = { class = "floating-kitty" },
 	float = true,
 	center = true,
-	size = "1000 600",
+	size = "1000 700",
 })
 
 -- Floating kitty (follow mouse)
 hl.window_rule({
 	match = { class = "floating-kittyfm" },
 	float = true,
-	size = "900 500",
+	size = "1000 700",
 	move = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
 })

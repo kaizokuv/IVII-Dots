@@ -1,0 +1,50 @@
+id           = "kaizoku/keybind-cheatsheet"
+name         = "Keybind Cheatsheet"
+version      = "1.0.0"
+min_noctalia = "5.0.0"
+author       = "kaizoku"
+license      = "MIT"
+icon         = "keyboard"
+description  = "Live, always-current cheatsheet of your Hyprland keybinds, parsed from your config file/folder, auto-refreshing on change, with conflicting binds highlighted in red."
+tags         = ["hyprland", "keybinds", "cheatsheet", "productivity"]
+
+# Shared by the service, panel, and widget (Settings -> Plugins, gear on the row).
+[[setting]]
+key         = "config_path"
+type        = "folder"
+label       = "Hyprland config folder"
+description = "Folder (or single file) scanned for keybinds and watched for changes. Supports Lua (hl.bind) and classic (bind=) syntax."
+default     = "~/.config/hypr"
+
+[[setting]]
+key         = "poll_seconds"
+type        = "int"
+label       = "Change-check interval (seconds)"
+description = "How often to check the config files for changes."
+default     = 2
+min         = 1
+max         = 60
+
+[[setting]]
+key         = "hide_volume_brightness"
+type        = "bool"
+label       = "Hide media, volume & brightness keys"
+description = "Leave hardware system keys (XF86 media/volume/mute/mic/brightness) out of the cheatsheet. Off shows them with friendly names (Volume Up, Brightness Up, …)."
+default     = false
+
+[[service]]
+id    = "watcher"
+entry = "service.luau"
+
+[[panel]]
+id            = "cheatsheet"
+entry         = "panel.luau"
+width         = 660
+height        = 700
+placement     = "attached"
+position      = "top_center"
+open_near_click = false
+
+[[widget]]
+id    = "widget"
+entry = "widget.luau"

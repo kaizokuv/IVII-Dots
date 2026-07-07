@@ -81,9 +81,6 @@ Before installing, please make sure that you have [Noctalia V5](https://noctalia
 
 ```bash
 git clone https://github.com/kaizokuv/IVII-Dots.git
-# Create the directories for this to work
-mkdir ~/Pictures/
-mkdir ~/Pictures/Wallpapers/
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations

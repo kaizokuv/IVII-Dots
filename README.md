@@ -95,7 +95,6 @@ git clone https://github.com/kaizokuv/IVII-Dots.git
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
 cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/plugins/ # custom noctalia cheatsheet plugin
-# Everything after this is optional
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
@@ -103,6 +102,7 @@ cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
+cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 ```
 
 You will also need to install the following for things to work as seemlessly as they do for me
@@ -161,6 +161,8 @@ cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
+cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
+cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 ```
 
 <div align="center">
@@ -195,6 +197,8 @@ While I did make most of these configs myself, I did use Claude for some light w
 [End-4 Dotfiles](https://github.com/end-4/dots-hyprland) - These were my first dots that i used and were the base for about half of the keybinds and hyprland animations you see
 
 [Noctalia](https://github.com/noctalia-dev/noctalia) - The shell, bloody gorgeous and an inspiration for my own shell to come
+
+[Light-em's RMPC config](https://github.com/light-em/Archer/tree/master) - I saw this and loved it, credit where it's due
 
 <div align="center">
 <h2> Copying and License </h2>

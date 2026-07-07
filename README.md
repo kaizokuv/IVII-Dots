@@ -75,7 +75,17 @@ Screenshot Tool - [Rishot](https://github.com/Gakuseei/rishot)
 <h2> Installation </h2>
 </div>
 
-There is an install script on the way which will come soon (maybe), for now things will have to be done manually
+THERE IS NOW AN INSTALL SCRIPT!!!
+Just follow these instructions and the dots will work just fine (hopefully), if they don't just hmu with an issue
+
+```bash
+git clone https://github.com/kaizokuv/IVII-Dots.git
+cd IVII-Dots
+chmod +x installer.sh
+. installer.sh
+```
+
+Now if you don't trust the script (I don't blame you), just do it the manual way then
 
 Before installing, please make sure that you have [Noctalia V5](https://noctalia.dev/) installed
 
@@ -92,6 +102,7 @@ cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
+cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 ```
 
 You will also need to install the following for things to work as seemlessly as they do for me

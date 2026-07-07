@@ -1,6 +1,6 @@
 <div align="center">
 <h1>𝕀𝕍𝕀𝕀</h1>
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/kaizokuv/IVII-Dots?style=for-the-badge&logo=Files&logoColor=%236082B6"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/kaizokuv/IVII-Dots?display_timestamp=committer&style=for-the-badge&logo=git&logoColor=%236082B6"> <img alt="GitHub License" src="https://img.shields.io/github/license/kaizokuv/IVII-Dots?style=for-the-badge&logo=github&logoColor=6082B6"> 
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/kaizokuv/IVII-Dots?style=for-the-badge&logo=Files&logoColor=%236082B6"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/kaizokuv/IVII-Dots?display_timestamp=committer&style=for-the-badge&logo=git&logoColor=%236082B6"> <img alt="GitHub License" src="https://img.shields.io/github/license/kaizokuv/IVII-Dots?style=for-the-badge&logo=github&logoColor=%236082B6">
 </div>
 
 <div align="center">

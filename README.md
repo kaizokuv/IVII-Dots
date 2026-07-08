@@ -164,7 +164,7 @@ cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 ```
 
 <div align="center">
-<h2> Keybinds </h2>
+<h2> Keybinds and Aliases </h2>
 </div>
 
 I'm a big fan of saying "no" to the mouse, so just about anything you can think of has a bind. Here's a list of some basics to get you started :D
@@ -175,12 +175,25 @@ I'm a big fan of saying "no" to the mouse, so just about anything you can think 
 |Super + I|Settings for Noctalia|
 |Super + N|Control Center Main Panel|
 |Ctrl + Super + T|Wallpaper Panel|
-|Super + Return / Super + T|Terminal ((Default is Kitty, change in config to suit Your needs)|
+|Super + Return / Super + T|Terminal (Default is Kitty, change in config to suit Your needs)|
 |Super + C|Neovim (Change it to any code editor tbh)|
 |Super + W|Browser (Default is Brave, change in config to suit Your needs)|
 |Super + E|File Manager (Default is Nemo, change in config to suit your needs)|
 |Super + Q|Close Window|
 |Super + Comma|Cheatsheet|
+
+In addition, I do also have some maybe useful aliases (they are very to me so yeah), and the most common ones you can see listed below, if you want to see them all they're in config.fish
+
+|Alias|What it does|
+|---|---|
+|u|Full system update (yay -Syyu && killorphans && cache)|
+|install|yay -S|
+|remove|yay -Rns|
+|pacinfo|Gives info on a package (yay -Qi)|
+|paclist|List all installed packages (yay -Qqe)|
+|killorphans|Removes all orphaned packages|
+|cache|Clears your cache|
+|w|Checks wifi speed via cloudflare-speed-cli|
 
 <div align="center">
 <h2> Disclaimer </h2>

@@ -47,9 +47,7 @@ https://github.com/user-attachments/assets/8e4a5430-51bb-4bba-83f8-e71d7a093b7e
 
 This is my own personal dotfiles I use on Artix Linux (Dinit init system). The shell is noctalia v5, and while i do love it i do plan to make my own at some point. The rest of the configurations are by me.
 
-The dotfiles will include a copy of my hyprland.lua file, which has all the hyprland configurations, keybinds, layouts and stuff. Everything else is there for noctalia themeing (in theory).
-
-Before you install, be warned i havent tested it myself so things may break (when i say test i mean outside of a machine that is my own)
+The dotfiles will include a copy of my hyprland.lua file, which has all the hyprland configurations, keybinds, layouts and stuff.
 
 The programs I'm using are listed below:
 
@@ -75,7 +73,8 @@ Screenshot Tool - [Rishot](https://github.com/Gakuseei/rishot)
 <h2> Installation </h2>
 </div>
 
-THERE IS NOW AN INSTALL SCRIPT!!! (Still under works, use at your own risk)
+THERE IS NOW AN INSTALL SCRIPT!!!
+
 Just follow these instructions and the dots will work just fine (hopefully), if they don't just hmu with an issue
 
 ```bash
@@ -111,7 +110,6 @@ You will also need to install the following for things to work as seemlessly as 
 - hyprland
 - kitty
 - fish
-- noctalia v5 (will be replaced eventually with my own shell)
 - spotify
 - brave
 - neovim
@@ -146,7 +144,7 @@ eval "$(starship init zsh)"
 <h2> Updating </h2>
 </div>
 
-Now an update script uhhhhh.. maybe..? For now just follow this
+For updating just follow this
 
 ```bash
 cd IVII-Dots

@@ -82,7 +82,7 @@ Just follow these instructions and the dots will work just fine (hopefully), if 
 git clone https://github.com/kaizokuv/IVII-Dots.git
 cd IVII-Dots
 chmod +x installer.sh
-. installer.sh
+./installer.sh
 ```
 
 Now if you don't trust the script (I don't blame you), just do it the manual way then

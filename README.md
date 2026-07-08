@@ -101,7 +101,6 @@ cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
-cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 ```
 
@@ -161,7 +160,6 @@ cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
 cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
-cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 ```
 

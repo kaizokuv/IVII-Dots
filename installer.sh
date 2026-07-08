@@ -2,7 +2,10 @@
 
 set -euo pipefail
 
+# Print the failing line instead of dying silently
 trap 'echo "ERROR: script failed at line $LINENO (exit code $?)" >&2' ERR
+
+# ---- Config -----------------------------------------------------------
 
 REPO_URL="https://github.com/kaizokuv/IVII-Dots.git"
 CLONE_DIR="$HOME/IVII-Dots"
@@ -149,6 +152,8 @@ DEPSDINIT=(
   zoxide
 )
 
+# ---- Helpers ------------------------------------------------------------
+
 log() {
   echo "[$(date '+%H:%M:%S')] $1"
 }
@@ -159,6 +164,7 @@ die() {
 }
 
 AUR_HELPER=""
+FAILED_PACKAGES=()
 
 detect_aur_helper() {
   if command -v yay &>/dev/null; then
@@ -170,6 +176,8 @@ detect_aur_helper() {
   fi
   log "Using AUR helper: $AUR_HELPER"
 }
+
+# ---- Steps ----------------------------------------------------------------
 
 update_system() {
   log "Updating system..."
@@ -286,7 +294,8 @@ install_deps() {
   install_rishot
 
   if [[ ${#failed[@]} -gt 0 ]]; then
-    die "Failed to install: ${failed[*]}"
+    FAILED_PACKAGES+=("${failed[@]}")
+    log "WARNING: Failed to install: ${failed[*]} — continuing with the rest of the setup"
   fi
 }
 
@@ -350,8 +359,14 @@ copy_files() {
 
 finish() {
   log "Done. Dotfiles installed to $CONFIG_DIR"
+  if [[ ${#FAILED_PACKAGES[@]} -gt 0 ]]; then
+    log "NOTE: These packages failed to install and may need a manual retry:"
+    log "  $AUR_HELPER -S ${FAILED_PACKAGES[*]}"
+  fi
   log "Log out and back in for the default shell change and Hyprland config to take effect."
 }
+
+# ---- Main -----------------------------------------------------------------
 
 main() {
   detect_aur_helper

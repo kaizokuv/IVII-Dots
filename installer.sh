@@ -46,6 +46,8 @@ DEPSSYSD=(
   xorg-fonts-75dpi
   xorg-fonts-encodings
   xorg-mkfontscale
+  pay-respects
+  cloudflare-speed-cli
 )
 
 DEPSRUNIT=(
@@ -90,6 +92,8 @@ DEPSRUNIT=(
   xorg-fonts-75dpi
   xorg-fonts-encodings
   xorg-mkfontscale
+  pay-respects
+  cloudflare-speed-cli
 )
 
 DEPSOPENRC=(
@@ -134,6 +138,8 @@ DEPSOPENRC=(
   xorg-fonts-75dpi
   xorg-fonts-encodings
   xorg-mkfontscale
+  pay-respects
+  cloudflare-speed-cli
 )
 
 DEPSDINIT=(
@@ -178,6 +184,8 @@ DEPSDINIT=(
   xorg-fonts-75dpi
   xorg-fonts-encodings
   xorg-mkfontscale
+  pay-respects
+  cloudflare-speed-cli
 )
 
 # ---- Helpers ------------------------------------------------------------

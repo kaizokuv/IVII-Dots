@@ -1,8 +1,5 @@
 #!/bin/bash
-#
-# IVII-Dots installer
-# update -> check noctalia -> install deps -> make dirs -> clone -> copy -> starship init -> finish
-#
+
 set -euo pipefail
 
 # ---- Config -----------------------------------------------------------
@@ -11,7 +8,6 @@ REPO_URL="https://github.com/kaizokuv/IVII-Dots.git"
 CLONE_DIR="$HOME/IVII-Dots"
 CONFIG_DIR="$HOME/.config"
 
-# Standard repo packages (installed via AUR helper)
 DEPS=(
   hyprland
   noctalia-git
@@ -45,8 +41,6 @@ DEPS=(
   wireplumber-dinit
   zoxide
 )
-
-RISHOT_INSTALL_URL="https://raw.githubusercontent.com/Gakuseei/rishot/main/install.sh"
 
 # ---- Helpers ------------------------------------------------------------
 
@@ -95,7 +89,7 @@ install_rishot() {
     return
   fi
   log "Installing rishot..."
-  curl -fsSL "$RISHOT_INSTALL_URL" | sh || die "rishot install failed"
+  curl -fsSL https://raw.githubusercontent.com/Gakuseei/rishot/main/install.sh | sh
 }
 
 install_deps() {

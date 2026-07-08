@@ -32,7 +32,7 @@ end
 # Package Install/Remove/Update
 alias install="yay -S"
 alias remove="yay -Rns"
-alias u="yay -Syyu pam pambase linux-zen linux-zen-headers -y && flatpak update -y && cargo install-update --all && killorphans && cache"
+alias u="yay -Syyu && killorphans && cache"
 
 # Listing
 alias orphans="yay -Qdtq"
@@ -42,14 +42,12 @@ alias listdesktop="ls /usr/share/applications/"
 
 # Cleanup orphan packages
 function killorphans
-    flatpak uninstall --unused
     yay -Qdtq | read -l orphans
     if test -n "$orphans"
         yay -Rns $orphans
     else
         echo "No orphaned packages found."
     end
-    flatpak uninstall --unused
 end
 
 # Clean package cache

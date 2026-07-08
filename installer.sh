@@ -2,13 +2,118 @@
 
 set -euo pipefail
 
-# ---- Config -----------------------------------------------------------
+trap 'echo "ERROR: script failed at line $LINENO (exit code $?)" >&2' ERR
 
 REPO_URL="https://github.com/kaizokuv/IVII-Dots.git"
 CLONE_DIR="$HOME/IVII-Dots"
 CONFIG_DIR="$HOME/.config"
 
-DEPS=(
+DEPSSYSD=(
+  hyprland
+  noctalia-git
+  mpd
+  rmpc
+  kitty
+  neovim
+  fastfetch
+  yazi
+  fish
+  curl
+  fd
+  cava
+  btop
+  starship
+  power-profiles-daemon
+  mpvpaper
+  bluez
+  bluez-dinit
+  bluez-utils
+  brave-bin
+  eza
+  kotofetch
+  matugen-git
+  networkmanager
+  pipewire-alsa
+  pipewire-pulse
+  wireplumber
+  zoxide
+)
+
+DEPSRUNIT=(
+  hyprland
+  noctalia-git
+  mpd
+  mpd-runit
+  rmpc
+  kitty
+  neovim
+  fastfetch
+  yazi
+  fish
+  curl
+  fd
+  cava
+  btop
+  starship
+  power-profiles-daemon
+  power-profiles-daemon-runit
+  mpvpaper
+  bluez
+  bluez-runit
+  bluez-utils
+  brave-bin
+  eza
+  kotofetch
+  matugen-git
+  networkmanager
+  networkmanager-runit
+  pipewire-alsa
+  pipewire-runit
+  pipewire-pulse
+  pipewire-pulse-runit
+  wireplumber
+  wireplumber-runit
+  zoxide
+)
+
+DEPSOPENRC=(
+  hyprland
+  noctalia-git
+  mpd
+  mpd-openrc
+  rmpc
+  kitty
+  neovim
+  fastfetch
+  yazi
+  fish
+  curl
+  fd
+  cava
+  btop
+  starship
+  power-profiles-daemon
+  power-profiles-daemon-openrc
+  mpvpaper
+  bluez
+  bluez-openrc
+  bluez-utils
+  brave-bin
+  eza
+  kotofetch
+  matugen-git
+  networkmanager
+  networkmanager-openrc
+  pipewire-alsa
+  pipewire-dinit
+  pipewire-pulse
+  pipewire-pulse-openrc
+  wireplumber
+  wireplumber-openrc
+  zoxide
+)
+
+DEPSDINIT=(
   hyprland
   noctalia-git
   mpd
@@ -19,6 +124,8 @@ DEPS=(
   fastfetch
   yazi
   fish
+  curl
+  fd
   cava
   btop
   starship
@@ -38,11 +145,10 @@ DEPS=(
   pipewire-dinit
   pipewire-pulse
   pipewire-pulse-dinit
+  wireplumber
   wireplumber-dinit
   zoxide
 )
-
-# ---- Helpers ------------------------------------------------------------
 
 log() {
   echo "[$(date '+%H:%M:%S')] $1"
@@ -66,8 +172,6 @@ detect_aur_helper() {
   log "Using AUR helper: $AUR_HELPER"
 }
 
-# ---- Steps ----------------------------------------------------------------
-
 update_system() {
   log "Updating system..."
   "$AUR_HELPER" -Syu --noconfirm
@@ -83,20 +187,35 @@ check_noctalia() {
 }
 
 install_rishot() {
-  #log "Checking for rishot..."
-  #if command -v rishot &>/dev/null; then
-  # log "rishot already installed, skipping"
-  #return
-  #fi
+  log "Checking for rishot..."
+  if command -v rishot &>/dev/null; then
+    log "rishot already installed, skipping"
+    return
+  fi
   log "Installing rishot..."
-  curl -fsSL https://raw.githubusercontent.com/Gakuseei/rishot/main/install.sh | sh
+  if curl -fsSL https://raw.githubusercontent.com/Gakuseei/rishot/main/install.sh | sh; then
+    log "rishot installed successfully"
+  else
+    log "WARNING: rishot install failed (network issue or upstream script error) — continuing without it"
+  fi
 }
 
 install_deps() {
+  read -p " Choose init system: SystemD (1), OpenRC (2), Runit (3), Dinit (4): " choice
+
+  local -n selected_deps
+  case "$choice" in
+  1) selected_deps=DEPSSYSD ;;
+  2) selected_deps=DEPSOPENRC ;;
+  3) selected_deps=DEPSRUNIT ;;
+  4) selected_deps=DEPSDINIT ;;
+  *) die "Invalid choice: $choice" ;;
+  esac
+
   log "Installing dependencies via $AUR_HELPER..."
   local failed=()
 
-  for pkg in "${DEPS[@]}"; do
+  for pkg in "${selected_deps[@]}"; do
     if "$AUR_HELPER" -S --needed --noconfirm "$pkg"; then
       log "  [OK] $pkg"
     else
@@ -188,8 +307,6 @@ finish() {
   log "Done. Dotfiles installed to $CONFIG_DIR"
   log "Restart your shell (or 'exec \$SHELL') and log out/in to Hyprland for everything to take effect."
 }
-
-# ---- Main -----------------------------------------------------------------
 
 main() {
   detect_aur_helper

@@ -182,12 +182,12 @@ hl.bind(
 	{ description = "Cava (Floating and Spawns Where The Mouse Is)" }
 )
 
--- Special Workspace
-hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"), { description = "Toggles Special Workspace" })
+-- Hidden Workspace
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"), { description = "Toggles Hidden Workspace" })
 hl.bind(
 	"SUPER + ALT + S",
 	hl.dsp.window.move({ workspace = "special:special", follow = true }),
-	{ description = "Send To Special Workspace" }
+	{ description = "Send To Hidden Workspace" }
 )
 
 -- Lock and session stuff
@@ -309,6 +309,12 @@ hl.gesture({
 	fingers = 4,
 	direction = "horizontal",
 	action = "workspace",
+})
+hl.gesture({
+	fingers = 4,
+	direction = "vertical",
+	action = "special",
+	workspace_name = "special",
 })
 
 hl.config({

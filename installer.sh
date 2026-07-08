@@ -26,7 +26,6 @@ DEPSSYSD=(
   power-profiles-daemon
   mpvpaper
   bluez
-  bluez-dinit
   bluez-utils
   brave-bin
   eza

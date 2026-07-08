@@ -2,10 +2,7 @@
 
 set -euo pipefail
 
-# Print the failing line instead of dying silently
 trap 'echo "ERROR: script failed at line $LINENO (exit code $?)" >&2' ERR
-
-# ---- Config -----------------------------------------------------------
 
 REPO_URL="https://github.com/kaizokuv/IVII-Dots.git"
 CLONE_DIR="$HOME/IVII-Dots"
@@ -188,8 +185,6 @@ DEPSDINIT=(
   cloudflare-speed-cli
 )
 
-# ---- Helpers ------------------------------------------------------------
-
 log() {
   echo "[$(date '+%H:%M:%S')] $1"
 }
@@ -212,8 +207,6 @@ detect_aur_helper() {
   fi
   log "Using AUR helper: $AUR_HELPER"
 }
-
-# ---- Steps ----------------------------------------------------------------
 
 update_system() {
   log "Updating system..."
@@ -327,6 +320,21 @@ install_deps() {
     fi
   done
 
+  if [[ ${#failed[@]} -gt 0 ]]; then
+    log "Retrying ${#failed[@]} failed package(s) after a cooldown: ${failed[*]}"
+    sleep 30
+    local still_failed=()
+    for pkg in "${failed[@]}"; do
+      if "$AUR_HELPER" -S --needed --noconfirm "$pkg"; then
+        log "  [OK on retry] $pkg"
+      else
+        log "  [FAIL again] $pkg"
+        still_failed+=("$pkg")
+      fi
+    done
+    failed=("${still_failed[@]}")
+  fi
+
   install_rishot
 
   if [[ ${#failed[@]} -gt 0 ]]; then
@@ -365,6 +373,7 @@ copy_files() {
     "btop:$CONFIG_DIR/"
     "cava:$CONFIG_DIR/"
     "rmpc:$CONFIG_DIR/"
+    "Wallpapers:$HOME/"
   )
 
   for pair in "${pairs[@]}"; do
@@ -401,8 +410,6 @@ finish() {
   fi
   log "Log out and back in for the default shell change and Hyprland config to take effect."
 }
-
-# ---- Main -----------------------------------------------------------------
 
 main() {
   detect_aur_helper

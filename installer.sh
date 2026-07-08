@@ -29,6 +29,7 @@ DEPSSYSD=(
   bluez-utils
   brave-bin
   eza
+  git-lfs
   kotofetch
   matugen-git
   networkmanager
@@ -71,6 +72,7 @@ DEPSRUNIT=(
   bluez-utils
   brave-bin
   eza
+  git-lfs
   kotofetch
   matugen-git
   networkmanager
@@ -117,6 +119,7 @@ DEPSOPENRC=(
   bluez-utils
   brave-bin
   eza
+  git-lfs
   kotofetch
   matugen-git
   networkmanager
@@ -163,6 +166,7 @@ DEPSDINIT=(
   bluez-utils
   brave-bin
   eza
+  git-lfs
   kotofetch
   matugen-git
   networkmanager
@@ -282,7 +286,6 @@ set_default_shell() {
     return
   fi
 
-  # chsh requires the shell to be registered in /etc/shells
   if ! grep -qx "$fish_path" /etc/shells 2>/dev/null; then
     log "  $fish_path not listed in /etc/shells, adding it (requires sudo)"
     echo "$fish_path" | sudo tee -a /etc/shells &>/dev/null
@@ -352,11 +355,24 @@ make_directories() {
 
 clone_repo() {
   log "Cloning dotfiles repo..."
+
+  if ! command -v git-lfs &>/dev/null; then
+    log "  git-lfs not found, installing..."
+    "$AUR_HELPER" -S --needed --noconfirm git-lfs || die "Failed to install git-lfs"
+  fi
+
+  git lfs install --skip-repo &>/dev/null
+
   if [[ -d "$CLONE_DIR" ]]; then
     log "  Repo already exists at $CLONE_DIR, pulling latest instead"
     git -C "$CLONE_DIR" pull
   else
     git clone "$REPO_URL" "$CLONE_DIR" || die "Clone failed"
+  fi
+
+  log "  Fetching LFS content (wallpapers, etc)..."
+  if ! git -C "$CLONE_DIR" lfs pull; then
+    log "  WARNING: git lfs pull failed — LFS-tracked files (e.g. Wallpapers) may still be pointer files"
   fi
 }
 

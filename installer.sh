@@ -83,11 +83,11 @@ check_noctalia() {
 }
 
 install_rishot() {
-  log "Checking for rishot..."
-  if command -v rishot &>/dev/null; then
-    log "rishot already installed, skipping"
-    return
-  fi
+  #log "Checking for rishot..."
+  #if command -v rishot &>/dev/null; then
+  # log "rishot already installed, skipping"
+  #return
+  #fi
   log "Installing rishot..."
   curl -fsSL https://raw.githubusercontent.com/Gakuseei/rishot/main/install.sh | sh
 }

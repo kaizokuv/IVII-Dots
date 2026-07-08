@@ -75,7 +75,7 @@ Screenshot Tool - [Rishot](https://github.com/Gakuseei/rishot)
 <h2> Installation </h2>
 </div>
 
-THERE IS NOW AN INSTALL SCRIPT!!!
+THERE IS NOW AN INSTALL SCRIPT!!! (Still under works, use at your own risk)
 Just follow these instructions and the dots will work just fine (hopefully), if they don't just hmu with an issue
 
 ```bash

@@ -102,6 +102,8 @@ cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
+cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
+cp -r ~/IVII-Dots/Wallpapers ~/
 ```
 
 You will also need to install the following for things to work as seemlessly as they do for me
@@ -161,6 +163,8 @@ cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
 cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
+cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
+cp -r ~/IVII-Dots/Wallpapers ~/ # Wallpapers
 ```
 
 <div align="center">

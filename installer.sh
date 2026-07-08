@@ -39,6 +39,13 @@ DEPSSYSD=(
   pipewire-pulse
   wireplumber
   zoxide
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  xorg-fonts-100dpi
+  xorg-fonts-75dpi
+  xorg-fonts-encodings
+  xorg-mkfontscale
 )
 
 DEPSRUNIT=(
@@ -76,6 +83,13 @@ DEPSRUNIT=(
   wireplumber
   wireplumber-runit
   zoxide
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  xorg-fonts-100dpi
+  xorg-fonts-75dpi
+  xorg-fonts-encodings
+  xorg-mkfontscale
 )
 
 DEPSOPENRC=(
@@ -113,6 +127,13 @@ DEPSOPENRC=(
   wireplumber
   wireplumber-openrc
   zoxide
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  xorg-fonts-100dpi
+  xorg-fonts-75dpi
+  xorg-fonts-encodings
+  xorg-mkfontscale
 )
 
 DEPSDINIT=(
@@ -150,6 +171,13 @@ DEPSDINIT=(
   wireplumber
   wireplumber-dinit
   zoxide
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  xorg-fonts-100dpi
+  xorg-fonts-75dpi
+  xorg-fonts-encodings
+  xorg-mkfontscale
 )
 
 # ---- Helpers ------------------------------------------------------------

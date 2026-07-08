@@ -56,10 +56,10 @@ die() {
 AUR_HELPER=""
 
 detect_aur_helper() {
-  if command -v paru &>/dev/null; then
-    AUR_HELPER="paru"
-  elif command -v yay &>/dev/null; then
+  if command -v yay &>/dev/null; then
     AUR_HELPER="yay"
+  elif command -v paru &>/dev/null; then
+    AUR_HELPER="paru"
   else
     die "No AUR helper found (paru or yay required). Install one first."
   fi

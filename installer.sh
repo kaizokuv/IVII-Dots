@@ -36,13 +36,6 @@ DEPSSYSD=(
   pipewire-pulse
   wireplumber
   zoxide
-  noto-fonts
-  noto-fonts-cjk
-  noto-fonts-emoji
-  xorg-fonts-100dpi
-  xorg-fonts-75dpi
-  xorg-fonts-encodings
-  xorg-mkfontscale
 )
 
 DEPSRUNIT=(
@@ -80,13 +73,6 @@ DEPSRUNIT=(
   wireplumber
   wireplumber-runit
   zoxide
-  noto-fonts
-  noto-fonts-cjk
-  noto-fonts-emoji
-  xorg-fonts-100dpi
-  xorg-fonts-75dpi
-  xorg-fonts-encodings
-  xorg-mkfontscale
 )
 
 DEPSOPENRC=(
@@ -124,13 +110,6 @@ DEPSOPENRC=(
   wireplumber
   wireplumber-openrc
   zoxide
-  noto-fonts
-  noto-fonts-cjk
-  noto-fonts-emoji
-  xorg-fonts-100dpi
-  xorg-fonts-75dpi
-  xorg-fonts-encodings
-  xorg-mkfontscale
 )
 
 DEPSDINIT=(
@@ -168,13 +147,6 @@ DEPSDINIT=(
   wireplumber
   wireplumber-dinit
   zoxide
-  noto-fonts
-  noto-fonts-cjk
-  noto-fonts-emoji
-  xorg-fonts-100dpi
-  xorg-fonts-75dpi
-  xorg-fonts-encodings
-  xorg-mkfontscale
 )
 
 log() {
@@ -224,6 +196,66 @@ install_rishot() {
     log "rishot installed successfully"
   else
     log "WARNING: rishot install failed (network issue or upstream script error) — continuing without it"
+  fi
+}
+
+setup_path() {
+  log "Ensuring ~/.local/bin is on PATH..."
+  local shell_name
+  shell_name=$(basename "$SHELL")
+
+  case "$shell_name" in
+  fish)
+    fish -c 'fish_add_path ~/.local/bin' &>/dev/null
+    log "  Added ~/.local/bin to fish PATH (universal var)"
+    ;;
+  bash)
+    if ! grep -q '.local/bin' "$HOME/.bashrc" 2>/dev/null; then
+      echo 'export PATH="$HOME/.local/bin:$PATH"' >>"$HOME/.bashrc"
+      log "  Added ~/.local/bin to \$HOME/.bashrc"
+    else
+      log "  ~/.local/bin already on PATH in .bashrc"
+    fi
+    ;;
+  zsh)
+    if ! grep -q '.local/bin' "$HOME/.zshrc" 2>/dev/null; then
+      echo 'export PATH="$HOME/.local/bin:$PATH"' >>"$HOME/.zshrc"
+      log "  Added ~/.local/bin to \$HOME/.zshrc"
+    else
+      log "  ~/.local/bin already on PATH in .zshrc"
+    fi
+    ;;
+  *)
+    log "  Unrecognized shell ($shell_name) — add ~/.local/bin to PATH manually"
+    ;;
+  esac
+}
+
+set_default_shell() {
+  log "Checking default shell..."
+
+  local fish_path
+  fish_path=$(command -v fish) || {
+    log "  WARNING: fish not found on PATH, skipping shell change"
+    return
+  }
+
+  if [[ "$SHELL" == "$fish_path" ]]; then
+    log "  fish is already the default shell, skipping"
+    return
+  fi
+
+  # chsh requires the shell to be registered in /etc/shells
+  if ! grep -qx "$fish_path" /etc/shells 2>/dev/null; then
+    log "  $fish_path not listed in /etc/shells, adding it (requires sudo)"
+    echo "$fish_path" | sudo tee -a /etc/shells &>/dev/null
+  fi
+
+  log "  Changing default shell to fish — you will be prompted for your password"
+  if chsh -s "$fish_path"; then
+    log "  Default shell changed to fish. Takes effect on your next login."
+  else
+    log "  WARNING: chsh failed — you can change it manually later with: chsh -s $fish_path"
   fi
 }
 
@@ -278,61 +310,47 @@ clone_repo() {
 copy_files() {
   log "Copying config files..."
 
-  cp -r "$CLONE_DIR/hypr/" "$CONFIG_DIR/"
-  cp -r "$CLONE_DIR/noctalia/" "$CONFIG_DIR/"
-  cp -r "$CLONE_DIR/noctalia/plugins" "$HOME/.local/share/noctalia/plugins/"
-  cp -r "$CLONE_DIR/fastfetch/" "$CONFIG_DIR/"
-  cp -r "$CLONE_DIR/kitty/" "$CONFIG_DIR/"
-  cp -r "$CLONE_DIR/nvim/" "$CONFIG_DIR/"
-  cp -r "$CLONE_DIR/btop/" "$CONFIG_DIR/"
-  cp -r "$CLONE_DIR/cava/" "$CONFIG_DIR/"
-  cp -r "$CLONE_DIR/rmpc/" "$CONFIG_DIR/"
-  cp "$CLONE_DIR/starship.toml" "$CONFIG_DIR/"
-  cp "$CLONE_DIR/config.fish" "$CONFIG_DIR/fish/"
-}
+  local pairs=(
+    "hypr:$CONFIG_DIR/"
+    "noctalia:$CONFIG_DIR/"
+    "noctalia/plugins:$HOME/.local/share/noctalia/plugins/"
+    "fastfetch:$CONFIG_DIR/"
+    "kitty:$CONFIG_DIR/"
+    "nvim:$CONFIG_DIR/"
+    "btop:$CONFIG_DIR/"
+    "cava:$CONFIG_DIR/"
+    "rmpc:$CONFIG_DIR/"
+  )
 
-setup_starship() {
-  log "Configuring starship for detected shell..."
-  local shell_name
-  shell_name=$(basename "$SHELL")
+  for pair in "${pairs[@]}"; do
+    local src="${pair%%:*}"
+    local dest="${pair##*:}"
+    if [[ -e "$CLONE_DIR/$src" ]]; then
+      cp -r "$CLONE_DIR/$src" "$dest"
+      log "  [OK] $src -> $dest"
+    else
+      log "  [MISSING] $CLONE_DIR/$src not found, skipped"
+    fi
+  done
 
-  case "$shell_name" in
-  fish)
-    local rc="$CONFIG_DIR/fish/config.fish"
-    if ! grep -q "starship init fish" "$rc" 2>/dev/null; then
-      echo 'starship init fish | source' >>"$rc"
-      log "  Added starship init to $rc"
-    else
-      log "  starship already configured in $rc"
-    fi
-    ;;
-  bash)
-    local rc="$HOME/.bashrc"
-    if ! grep -q "starship init bash" "$rc" 2>/dev/null; then
-      echo 'eval "$(starship init bash)"' >>"$rc"
-      log "  Added starship init to $rc"
-    else
-      log "  starship already configured in $rc"
-    fi
-    ;;
-  zsh)
-    local rc="$HOME/.zshrc"
-    if ! grep -q "starship init zsh" "$rc" 2>/dev/null; then
-      echo 'eval "$(starship init zsh)"' >>"$rc"
-      log "  Added starship init to $rc"
-    else
-      log "  starship already configured in $rc"
-    fi
-    ;;
-  *)
-    log "  Unrecognized shell ($shell_name) — add starship init manually"
-    ;;
-  esac
+  if [[ -f "$CLONE_DIR/starship.toml" ]]; then
+    cp "$CLONE_DIR/starship.toml" "$CONFIG_DIR/"
+    log "  [OK] starship.toml"
+  else
+    log "  [MISSING] starship.toml not found, skipped"
+  fi
+
+  if [[ -f "$CLONE_DIR/config.fish" ]]; then
+    cp "$CLONE_DIR/config.fish" "$CONFIG_DIR/fish/"
+    log "  [OK] config.fish"
+  else
+    log "  [MISSING] config.fish not found, skipped"
+  fi
 }
 
 finish() {
   log "Done. Dotfiles installed to $CONFIG_DIR"
-  log "Restart your shell (or 'exec \$SHELL') and log out/in to Hyprland for everything to take effect."
+  log "Log out and back in for the default shell change and Hyprland config to take effect."
 }
 
 main() {
@@ -340,10 +358,11 @@ main() {
   update_system
   check_noctalia
   install_deps
+  setup_path
   make_directories
   clone_repo
   copy_files
-  setup_starship
+  set_default_shell
   finish
 }
 

@@ -93,7 +93,7 @@ git clone https://github.com/kaizokuv/IVII-Dots.git
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
-cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/plugins/ # custom noctalia cheatsheet plugin
+cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # custom noctalia cheatsheet plugin
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
@@ -152,7 +152,7 @@ git pull
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
-cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/plugins/ # custom noctalia cheatsheet plugin
+cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # custom noctalia cheatsheet plugin
 # Everything after this is optional
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same

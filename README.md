@@ -122,6 +122,10 @@ You will also need to install the following for things to work as seemlessly as 
 - Vesktop
 - [Late.sh](https://github.com/mpiorowski/late-sh)
 - [Rishot](https://github.com/Gakuseei/rishot)
+- kotofetch
+- zoxide
+- pay-respects
+- cloudflare-speed-cli
 - probably some others im forgetting :D
 
 For starship, you will have to add this into your shell config (fish, bash, zsh)

@@ -74,6 +74,7 @@ Screenshot Tool - [Rishot](https://github.com/Gakuseei/rishot)
 </div>
 
 THERE IS NOW AN INSTALL SCRIPT!!!
+As of now, it only works on Arch and its derivatives (sorry everyone else, I'm working on it ;w;)
 
 Just follow these instructions and the dots will work just fine (hopefully), if they don't just hmu with an issue
 

@@ -228,7 +228,7 @@ enabled = [
     name = "community"
 
 [shell]
-avatar_path = "/home/kaizoku/Pictures/5.png"
+avatar_path = ""
 password_style = "random"
 polkit_agent = true
 settings_show_advanced = true
@@ -238,7 +238,7 @@ settings_show_advanced = true
     transparency_mode = "glass"
 
     [shell.screenshot]
-    directory = "/home/kaizoku/Pictures/Screenshots"
+    directory = "~/Pictures/Screenshots"
 
     [[shell.session.actions]]
     action = "lock"
@@ -293,66 +293,18 @@ wallpaper_scheme = "m3-content"
     community_ids = [ "spicetify", "zen-browser", "neovim", "obsidian", "discord", "steam", "yazi", "hyprtoolkit" ]
 
 [wallpaper]
-directory = "/home/kaizoku/Wallpapers"
+directory = "~/Wallpapers"
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/kaizoku/Wallpapers/undefined - Imgur (3).jpg"
+    path = ""
 
     [wallpaper.last]
-    path = "/home/kaizoku/Wallpapers/undefined - Imgur (3).jpg"
+    path = ""
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/kaizoku/Wallpapers/undefined - Imgur (3).jpg"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/1 - Sni2Ik0.jpg"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/_.gif"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/highway intoxication.jpg"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/NISSAN gtr R37 desktop Wallpaper (2k_4k).png"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/Purple Night Vibes_ Anime Girl on Nissan Skyline R34 GT-R.jpeg"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/Privacy lost it's meaning.png"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/undefined - Imgur (3).jpg"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kaizoku/Wallpapers/wallhaven-ml92v1_3840x2160.png"
-    theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
-
+    path = ""
+ 
 [weather]
 refresh_minutes = 5
 
@@ -385,8 +337,5 @@ drawer_columns = 5
 type = "noctalia/wallhaven:wallhaven"
 
 [widget.widget]
-type = "kaizoku/workspace-overview:widget"
-
-[widget.widget_2]
 enabled = true
 type = "kaizoku/keybind-cheatsheet:widget"

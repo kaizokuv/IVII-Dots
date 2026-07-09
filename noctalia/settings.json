@@ -367,7 +367,7 @@
         "animationDisabled": false,
         "animationSpeed": 1,
         "autoStartAuth": false,
-        "avatarImage": "/home/kaizoku/.face",
+        "avatarImage": "",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
         "clockStyle": "custom",
@@ -632,7 +632,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/kaizoku/Pictures/Wallpapers",
+        "directory": "",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [

@@ -149,7 +149,7 @@ hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "Kitty" })
 hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"), { description = "Kitty" })
 -- hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e /usr/bin/yazi"), { description = "App: File manager" })
 hl.bind("SUPER + C", hl.dsp.exec_cmd("kitty -e nvim"), { description = "Neovim" })
-hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("kitty -e /home/kaizoku/.local/bin/late"), { description = "Late.sh" })
+hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("kitty -e ~/.local/bin/late"), { description = "Late.sh" })
 hl.bind("SUPER + B", hl.dsp.exec_cmd("kitty -e btop"), { description = "Btop" })
 
 -- Config Files

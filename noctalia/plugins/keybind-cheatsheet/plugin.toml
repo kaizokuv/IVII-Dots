@@ -8,7 +8,6 @@ icon         = "keyboard"
 description  = "Live, always-current cheatsheet of your Hyprland keybinds, parsed from your config file/folder, auto-refreshing on change, with conflicting binds highlighted in red."
 tags         = ["hyprland", "keybinds", "cheatsheet", "productivity"]
 
-# Shared by the service, panel, and widget (Settings -> Plugins, gear on the row).
 [[setting]]
 key         = "config_path"
 type        = "folder"

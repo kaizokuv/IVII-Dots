@@ -1,7 +1,3 @@
--- keybind-cheatsheet :: bar widget
--- Shows a keyboard glyph; when the config has conflicting binds it turns the
--- glyph red and shows the conflict count. Click toggles the cheatsheet panel.
-
 local function render()
   local conflicts = noctalia.state.get("conflicts") or 0
   local count = noctalia.state.get("count") or 0

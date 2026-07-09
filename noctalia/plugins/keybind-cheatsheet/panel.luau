@@ -1,11 +1,6 @@
--- keybind-cheatsheet :: panel
--- Renders binds grouped into the config's comment sections (in file order):
--- section header + underline, then "combo | description" rows. Conflicts are
--- drawn red. The search field is focused the moment the panel opens.
-
 local isOpen = false
 local filter = ""
-local openSeq = 0   -- bumped each open so the search input is recreated + refocused
+local openSeq = 0
 
 local function matches(b)
   if filter == "" then return true end
@@ -51,8 +46,6 @@ local function render()
   headerRight[#headerRight + 1] = ui.button({ glyph = "refresh", variant = "ghost", onClick = "onRefresh" })
   headerRight[#headerRight + 1] = ui.button({ glyph = "x", variant = "ghost", onClick = "onCloseClicked" })
 
-  -- body: one column block per section (in file order). Even spacing between
-  -- sections comes from the scroll's gap, so there are no filler bars.
   local blocks = {}
   local curSection, curKids = nil, nil
   local shownAny = false

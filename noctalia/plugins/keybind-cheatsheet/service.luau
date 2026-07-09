@@ -1,11 +1,3 @@
--- keybind-cheatsheet :: watcher service
--- Scans the configured Hyprland config file/folder, parses keybinds from both
--- Lua (hl.bind("MODS + KEY", hl.dsp...., { description=... })) and classic
--- (bind = MODS, KEY, dispatcher, args) syntax. Binds are grouped into sections
--- taken from the `-- comment` headers in the config, in file order. Detects
--- duplicate combos as conflicts and publishes the result on the state channel.
--- Re-scans whenever any watched file changes (the auto-update trigger).
-
 local MODMAP = {
   SUPER = "SUPER", MOD4 = "SUPER", WIN = "SUPER", WINDOWS = "SUPER", META = "SUPER", SUPER_L = "SUPER",
   CTRL = "CTRL", CONTROL = "CTRL",
@@ -15,7 +7,6 @@ local MODMAP = {
 local MODORDER = { SUPER = 1, CTRL = 2, ALT = 3, SHIFT = 4 }
 local MODDISP = { SUPER = "Super", CTRL = "Ctrl", ALT = "Alt", SHIFT = "Shift" }
 
--- Friendly display names for non-letter keys (mouse buttons, media keys, etc.).
 local KEYNAMES = {
   ["mouse:272"] = "Left Mouse Click",
   ["mouse:273"] = "Right Mouse Click",
@@ -37,7 +28,6 @@ local KEYNAMES = {
   XF86MonBrightnessDown = "Brightness Down",
 }
 
--- Keys hidden when "hide volume & brightness" is on.
 local VOLBRIGHT = {
   ["XF86AudioRaiseVolume"] = true, ["XF86AudioLowerVolume"] = true, ["XF86AudioMute"] = true,
   ["XF86AudioMicMute"] = true, ["XF86MonBrightnessUp"] = true, ["XF86MonBrightnessDown"] = true,
@@ -47,9 +37,6 @@ local function friendlyKey(k)
   return KEYNAMES[k] or k
 end
 
--- Turn a list of raw tokens into a normalized bind descriptor. When
--- forcedKeyDisplay is given (dynamic/looped bind), it is used as the key label
--- verbatim and the bind is flagged dynamic (excluded from conflict detection).
 local function buildCombo(tokens, forcedKeyDisplay)
   local modset, key = {}, nil
   for _, raw in ipairs(tokens) do
@@ -59,7 +46,7 @@ local function buildCombo(tokens, forcedKeyDisplay)
       if m then
         modset[m] = true
       elseif not forcedKeyDisplay then
-        key = t -- last non-modifier token is the key
+        key = t
       end
     end
   end
@@ -79,8 +66,6 @@ local function buildCombo(tokens, forcedKeyDisplay)
   return { mods = mods, key = key, display = display, canonical = canonical, dynamic = forcedKeyDisplay ~= nil }
 end
 
--- Collect quoted string literals from a chunk of Lua, joined in order. Prefer
--- double-quoted literals; fall back to single-quoted only if there are none.
 local function joinStringLiterals(s)
   local parts = {}
   for lit in s:gmatch('"([^"]*)"') do parts[#parts + 1] = lit end
@@ -90,7 +75,6 @@ local function joinStringLiterals(s)
   return noctalia.string.trim(table.concat(parts, ""))
 end
 
--- Derive a fallback action label (used when a bind has no { description }).
 local function actionLabel(action)
   local exec = action:match("exec_cmd%s*%((.*)%)") or action:match("exec_raw%s*%((.*)%)")
   if exec then
@@ -108,7 +92,6 @@ local function actionLabel(action)
   return noctalia.string.trim(action)
 end
 
--- String-aware check: are parentheses in `s` balanced (and at least one opened)?
 local function balanced(s)
   local depth, inStr, quote, esc, opened = 0, false, nil, false, false
   for i = 1, #s do
@@ -126,14 +109,11 @@ local function balanced(s)
   return opened and depth <= 0
 end
 
--- Parse a full (possibly multi-line) hl.bind(...) statement.
 local function parseLuaStatement(stmt)
   local s, e, combo = stmt:find('hl%.bind%s*%(%s*"([^"]*)"')
   if not combo then s, e, combo = stmt:find("hl%.bind%s*%(%s*'([^']*)'") end
   if not combo then return nil end
 
-  -- A combo built by string concatenation ("SUPER + code:" .. x) is a dynamic /
-  -- looped bind whose key can't be resolved statically.
   local dynamic = stmt:sub((e or 0) + 1):match("^%s*%.%.") ~= nil
 
   local tokens = {}
@@ -165,7 +145,6 @@ local function parseLuaStatement(stmt)
   return b
 end
 
--- Parse a single classic `bind = ...` line.
 local function parseClassicLine(line, vars)
   local rhs = line:match("^%s*bind[lrenmtsdpio]*%s*=%s*(.+)$")
   if not rhs then return nil end
@@ -184,12 +163,10 @@ local function parseClassicLine(line, vars)
   return b
 end
 
--- Is a comment line a section header (vs a commented-out bind or code)?
 local function sectionFromComment(trimmed)
   if trimmed:sub(1, 2) ~= "--" then return nil end
   local text = noctalia.string.trim(trimmed:gsub("^%-+", ""))
   if text == "" then return nil end
-  -- ignore commented-out binds / code lines
   if text:match("hl%.bind") or text:match("hl%.dsp") or text:match("^bind%s*=") or text:match("bind[lrenmtsdpio]*%s*=") then
     return nil
   end
@@ -230,8 +207,6 @@ local function signature(files)
   return sig
 end
 
--- Split file content into logical statements, tracking the current section,
--- and parse every bind in file order.
 local function parseFile(content, hideVB, out)
   local vars = {}
   collectVars(content, vars)
@@ -250,7 +225,6 @@ local function parseFile(content, hideVB, out)
       if sec then section = sec end
       i = i + 1
     elseif trimmed:match("hl%.bind") then
-      -- accumulate a (possibly multi-line) statement until parens balance
       local stmt = line
       local j = i
       while not balanced(stmt) and (j - i) < 20 and j < #lines do
@@ -288,8 +262,6 @@ local function scan()
     if content then parseFile(content, hideVB, binds) end
   end
 
-  -- Conflict detection: group by canonical combo, dedup identical, flag groups >1.
-  -- Dynamic/looped binds have unresolved keys, so they are excluded.
   local groups = {}
   for _, b in ipairs(binds) do
     if not b.dynamic then
@@ -310,7 +282,6 @@ local function scan()
     end
   end
 
-  -- Emit in file order, tagged with section; the panel groups consecutively.
   local out = {}
   for _, b in ipairs(binds) do
     out[#out + 1] = {

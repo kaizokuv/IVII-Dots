@@ -91,6 +91,8 @@ Before installing, please make sure that you have [Noctalia V5](https://noctalia
 
 ```bash
 git clone https://github.com/kaizokuv/IVII-Dots.git
+cd ~/IVII-Dots
+git lfs pull
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
@@ -106,7 +108,7 @@ cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/
 ```
 
-You will also need to install the following for things to work as seemlessly as they do for me
+You will also need to install the following for things to work as seemlessly as they do for me (do install them before cloning the repo)
 
 - hyprland
 - kitty
@@ -128,6 +130,7 @@ You will also need to install the following for things to work as seemlessly as 
 - pay-respects
 - cloudflare-speed-cli
 - hyprmoncfg
+- git-lfs
 - probably some others im forgetting :D
 
 For starship, you will have to add this into your shell config (fish, bash, zsh)

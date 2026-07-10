@@ -250,11 +250,6 @@ end
 
 local function scan()
   local root = noctalia.expandPath(noctalia.getConfig("config_path") or "~/.config/hypr")
-  -- Explicit nil-check instead of `~= false`: plugin.toml declares this
-  -- setting's default as false (show volume/brightness keys). If the
-  -- settings layer ever hands back nil instead of the resolved default,
-  -- `nil ~= false` was true, which silently flipped the default to
-  -- "hide" instead of the documented "show".
   local hideVB = noctalia.getConfig("hide_volume_brightness")
   if hideVB == nil then hideVB = false end
   local files = {}

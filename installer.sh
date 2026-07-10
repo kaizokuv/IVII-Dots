@@ -435,6 +435,18 @@ finish() {
   log "Log out and back in for the default shell change and Hyprland config to take effect."
 }
 
+monitorslua() {
+  FILE="$HOME/.config/hypr/monitors.lua"
+
+  if [ -f "$FILE" ]; then
+    log "monitors.lua already exists, skipping..."
+  else
+    log "monitors.lua not found, creating it..."
+    mkdir -p "$(dirname "$FILE")"
+    touch "$FILE"
+  fi
+}
+
 main() {
   detect_aur_helper
   update_system
@@ -444,6 +456,7 @@ main() {
   make_directories
   clone_repo
   copy_files
+  monitorslua
   set_default_shell
   finish
 }

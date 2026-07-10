@@ -215,6 +215,7 @@ If you guys have any suggestions on what to add or what needs fixing just open a
 
 Being worked on:
 - New widget for song recognition using [SongRec](https://github.com/marin-m/SongRec)
+- Making the dots and plugins be WM-Agnostic to work on all WMs (Hyprland, Niri, Mango, etc..)
 
 Being fixed:
 - The cheatsheet not loading properly

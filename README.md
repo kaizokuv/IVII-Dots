@@ -208,6 +208,19 @@ In addition, I do also have some maybe useful aliases (they are very to me so ye
 |w|Checks wifi speed via cloudflare-speed-cli|
 
 <div align="center">
+<h2> Being Worked on/fixing </h2>
+</div>
+
+If you guys have any suggestions on what to add or what needs fixing just open a github issue, but for now this is whats being done behind the scenes.
+
+Being worked on:
+- New widget for song recognition using [SongRec](https://github.com/marin-m/SongRec)
+
+Being fixed:
+- The cheatsheet not loading properly
+- Lockscreen being on the default
+
+<div align="center">
 <h2> Disclaimer </h2>
 </div>
 

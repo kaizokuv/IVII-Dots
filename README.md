@@ -106,6 +106,7 @@ cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/
+mkdir ~/.config/hypr/monitors.lua # for multi monitor configuration via hyprmoncfg
 ```
 
 You will also need to install the following for things to work as seemlessly as they do for me (do install them before cloning the repo)
@@ -174,6 +175,8 @@ cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/ # Wallpapers
 ```
+
+Or just re-run the install script :D
 
 <div align="center">
 <h2> Keybinds and Aliases </h2>

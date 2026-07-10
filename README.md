@@ -127,6 +127,7 @@ You will also need to install the following for things to work as seemlessly as 
 - zoxide
 - pay-respects
 - cloudflare-speed-cli
+- hyprmoncfg
 - probably some others im forgetting :D
 
 For starship, you will have to add this into your shell config (fish, bash, zsh)

@@ -47,6 +47,7 @@ DEPSSYSD=(
   pay-respects
   cloudflare-speed-cli
   quickshell-overview-git
+  hyprmoncfg
 )
 
 DEPSRUNIT=(
@@ -95,6 +96,7 @@ DEPSRUNIT=(
   pay-respects
   cloudflare-speed-cli
   quickshell-overview-git
+  hyprmoncfg
 )
 
 DEPSOPENRC=(
@@ -143,6 +145,7 @@ DEPSOPENRC=(
   pay-respects
   cloudflare-speed-cli
   quickshell-overview-git
+  hyprmoncfg
 )
 
 DEPSDINIT=(
@@ -191,6 +194,7 @@ DEPSDINIT=(
   pay-respects
   cloudflare-speed-cli
   quickshell-overview-git
+  hyprmoncfg
 )
 
 log() {

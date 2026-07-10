@@ -5,6 +5,7 @@ hl.env("QT_STYLE_OVERRIDE", "Breeze")
 local ipc = "noctalia msg"
 
 -- Hyprmoncfg
+require("monitors")
 
 -- Startup
 hl.on("hyprland.start", function()
@@ -328,6 +329,9 @@ hl.config({
 		workspace_swipe_direction_lock = true,
 		workspace_swipe_direction_lock_threshold = 10,
 		workspace_swipe_create_new = true,
+	},
+	input = {
+		accel_profile = "flat",
 	},
 	general = {
 		-- Gaps and border

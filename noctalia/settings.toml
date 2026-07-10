@@ -369,8 +369,8 @@ widget_order = [
         show_when_idle = true
 
 [nightlight]
-enabled = true
-force = true
+enabled = false
+force = false
 temperature_day = 4000
 temperature_night = 3900
 

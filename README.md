@@ -213,6 +213,8 @@ In addition, I do also have some maybe useful aliases (they are very to me so ye
 
 While I did make most of these configs myself, I did use Claude for some light work, such as merging everything into one folder to push and manage easily (previously it was all over the place), as well as some of the code, making sure there are no bugs for the configs and the custom plugin, so some of the code is AI-generated, just gotta be transparent
 
+In addition, these dots does not deal with services, it it mainly to get you started on hyprland by dealing with stuff like window rules and keybinds, startups for the shell and other things, you will have to manage your services and programs and whatnot yourself
+
 <div align="center">
 <h2> Contributions </h2>
 </div>

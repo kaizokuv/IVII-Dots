@@ -122,6 +122,7 @@ You will also need to install the following for things to work as seemlessly as 
 - Vesktop
 - [Late.sh](https://github.com/mpiorowski/late-sh)
 - [Rishot](https://github.com/Gakuseei/rishot)
+- [quickshell-overview](https://github.com/Shanu-Kumawat/quickshell-overview)
 - kotofetch
 - zoxide
 - pay-respects
@@ -219,6 +220,8 @@ While I did make most of these configs myself, I did use Claude for some light w
 [Light-em's RMPC config](https://github.com/light-em/Archer/tree/master) - I saw this and loved it, credit where it's due
 
 [Gakuseei](https://github.com/Gakuseei/rishot) - The maker of Rishot, love this tool
+
+[Shanu-Kumawat](https://github.com/Shanu-Kumawat/quickshell-overview) - For the quickshell overview tool, the most perfect one i found for my flow
 
 <div align="center">
 <h2> Copying and License </h2>

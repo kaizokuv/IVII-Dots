@@ -219,6 +219,7 @@ Being worked on:
 Being fixed:
 - The cheatsheet not loading properly
 - Lockscreen being on the default
+- An issue with cloudflare-speed-cli not installing with yay/paru (replacing the logic for it to install with cargo)
 
 <div align="center">
 <h2> Disclaimer </h2>

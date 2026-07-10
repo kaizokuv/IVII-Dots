@@ -218,6 +218,8 @@ While I did make most of these configs myself, I did use Claude for some light w
 
 [Light-em's RMPC config](https://github.com/light-em/Archer/tree/master) - I saw this and loved it, credit where it's due
 
+[Gakuseei](https://github.com/Gakuseei/rishot) - The maker of Rishot, love this tool
+
 <div align="center">
 <h2> Copying and License </h2>
 </div>

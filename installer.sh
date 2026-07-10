@@ -46,6 +46,7 @@ DEPSSYSD=(
   xorg-mkfontscale
   pay-respects
   cloudflare-speed-cli
+  quickshell-overview-git
 )
 
 DEPSRUNIT=(
@@ -93,6 +94,7 @@ DEPSRUNIT=(
   xorg-mkfontscale
   pay-respects
   cloudflare-speed-cli
+  quickshell-overview-git
 )
 
 DEPSOPENRC=(
@@ -140,6 +142,7 @@ DEPSOPENRC=(
   xorg-mkfontscale
   pay-respects
   cloudflare-speed-cli
+  quickshell-overview-git
 )
 
 DEPSDINIT=(
@@ -187,6 +190,7 @@ DEPSDINIT=(
   xorg-mkfontscale
   pay-respects
   cloudflare-speed-cli
+  quickshell-overview-git
 )
 
 log() {

@@ -45,6 +45,7 @@ DEPSSYSD=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
+  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -94,6 +95,7 @@ DEPSRUNIT=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
+  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -143,6 +145,7 @@ DEPSOPENRC=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
+  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -192,6 +195,7 @@ DEPSDINIT=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
+  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -234,39 +238,6 @@ check_noctalia() {
   fi
 }
 
-install_cloudflare_speed_cli() {
-  log "Checking for cloudflare-speed-cli..."
-  if command -v cloudflare-speed-cli &>/dev/null; then
-    log "cloudflare-speed-cli already installed, skipping"
-    return
-  fi
-
-  if ! command -v cargo &>/dev/null; then
-    log "  cargo not found — installing rustup via $AUR_HELPER..."
-    if "$AUR_HELPER" -S --needed --noconfirm rustup; then
-      rustup default stable || log "  WARNING: 'rustup default stable' failed"
-    else
-      log "  WARNING: failed to install rustup via $AUR_HELPER"
-    fi
-
-    [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-
-    if ! command -v cargo &>/dev/null; then
-      log "  WARNING: cargo still not available — cannot install cloudflare-speed-cli. Install rust/cargo manually, then run 'cargo install cloudflare-speed-cli'."
-      FAILED_PACKAGES+=("cloudflare-speed-cli (cargo missing)")
-      return
-    fi
-  fi
-
-  log "Installing cloudflare-speed-cli via cargo..."
-  if cargo install cloudflare-speed-cli; then
-    log "  [OK] cloudflare-speed-cli installed via cargo (binary in ~/.cargo/bin)"
-  else
-    log "  WARNING: 'cargo install cloudflare-speed-cli' failed — continuing without it"
-    FAILED_PACKAGES+=("cloudflare-speed-cli (cargo)")
-  fi
-}
-
 install_rishot() {
   log "Checking for rishot..."
   if command -v rishot &>/dev/null; then
@@ -282,7 +253,7 @@ install_rishot() {
 }
 
 setup_path() {
-  log "Ensuring ~/.local/bin and ~/.cargo/bin are on PATH..."
+  log "Ensuring ~/.local/bin is on PATH..."
   local shell_name
   shell_name=$(basename "$SHELL")
 
@@ -290,8 +261,6 @@ setup_path() {
   fish)
     fish -c 'fish_add_path ~/.local/bin' &>/dev/null
     log "  Added ~/.local/bin to fish PATH (universal var)"
-    fish -c 'fish_add_path ~/.cargo/bin' &>/dev/null
-    log "  Added ~/.cargo/bin to fish PATH (universal var)"
     ;;
   bash)
     if ! grep -q '.local/bin' "$HOME/.bashrc" 2>/dev/null; then
@@ -299,12 +268,6 @@ setup_path() {
       log "  Added ~/.local/bin to \$HOME/.bashrc"
     else
       log "  ~/.local/bin already on PATH in .bashrc"
-    fi
-    if ! grep -q '.cargo/bin' "$HOME/.bashrc" 2>/dev/null; then
-      echo 'export PATH="$HOME/.cargo/bin:$PATH"' >>"$HOME/.bashrc"
-      log "  Added ~/.cargo/bin to \$HOME/.bashrc"
-    else
-      log "  ~/.cargo/bin already on PATH in .bashrc"
     fi
     ;;
   zsh)
@@ -314,15 +277,9 @@ setup_path() {
     else
       log "  ~/.local/bin already on PATH in .zshrc"
     fi
-    if ! grep -q '.cargo/bin' "$HOME/.zshrc" 2>/dev/null; then
-      echo 'export PATH="$HOME/.cargo/bin:$PATH"' >>"$HOME/.zshrc"
-      log "  Added ~/.cargo/bin to \$HOME/.zshrc"
-    else
-      log "  ~/.cargo/bin already on PATH in .zshrc"
-    fi
     ;;
   *)
-    log "  Unrecognized shell ($shell_name) — add ~/.local/bin and ~/.cargo/bin to PATH manually"
+    log "  Unrecognized shell ($shell_name) — add ~/.local/bin to PATH manually"
     ;;
   esac
 }
@@ -394,7 +351,6 @@ install_deps() {
   fi
 
   install_rishot
-  install_cloudflare_speed_cli
 
   if [[ ${#failed[@]} -gt 0 ]]; then
     FAILED_PACKAGES+=("${failed[@]}")

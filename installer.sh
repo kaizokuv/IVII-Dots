@@ -45,7 +45,6 @@ DEPSSYSD=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
-  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -95,7 +94,6 @@ DEPSRUNIT=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
-  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -145,7 +143,6 @@ DEPSOPENRC=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
-  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -195,7 +192,6 @@ DEPSDINIT=(
   xorg-fonts-encodings
   xorg-mkfontscale
   pay-respects
-  cloudflare-speed-cli
   quickshell-overview-git
   hyprmoncfg
   cargo
@@ -249,6 +245,20 @@ install_rishot() {
     log "rishot installed successfully"
   else
     log "WARNING: rishot install failed (network issue or upstream script error) — continuing without it"
+  fi
+}
+
+install_cargo_tools() {
+  log "Checking for cloudflare-speed-cli..."
+  if command -v cloudflare-speed-cli &>/dev/null; then
+    log "  cloudflare-speed-cli already installed, skipping"
+    return
+  fi
+  log "Installing cloudflare-speed-cli via cargo..."
+  if cargo install cloudflare-speed-cli; then
+    log "  cloudflare-speed-cli installed successfully"
+  else
+    log "  WARNING: cloudflare-speed-cli install failed — you can retry with: cargo install cloudflare-speed-cli"
   fi
 }
 
@@ -456,6 +466,7 @@ main() {
   update_system
   check_noctalia
   install_deps
+  install_cargo_tools
   setup_path
   make_directories
   clone_repo

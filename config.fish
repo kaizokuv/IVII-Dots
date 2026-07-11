@@ -82,9 +82,6 @@ alias pidcheck="ps aux | grep pacman"
 alias pidkill="sudo kill -9"
 alias plockkill="sudo rm /var/lib/pacman/db.lck"
 
-fish_add_path ~/.cargo/bin
-fish_add_path ~/.local/bin
-
 pay-respects fish --alias | source
 
 # pnpm

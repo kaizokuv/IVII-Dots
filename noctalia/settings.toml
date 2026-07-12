@@ -15,7 +15,7 @@ order = [ "Beans" ]
 
     [bar.Beans]
     auto_hide = false
-    background_opacity = 0.39999997615814209
+    background_opacity = 0.5
     border = "outline"
     border_width = 0.0
     capsule = false

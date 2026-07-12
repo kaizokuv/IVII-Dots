@@ -15,7 +15,7 @@ order = [ "Beans" ]
 
     [bar.Beans]
     auto_hide = false
-    background_opacity = 0.5
+    background_opacity = 0.39999997615814209
     border = "outline"
     border_width = 0.0
     capsule = false
@@ -50,10 +50,10 @@ order = [ "Beans" ]
 
         [bar.Beans.dead_zone]
         command = ""
-        middle_command = ""
+        middle_command = "noctalia msg panel-toggle noctalia/notes:panel"
         right_command = ""
-        scroll_down_command = ""
-        scroll_up_command = ""
+        scroll_down_command = "noctalia msg volume-down 2"
+        scroll_up_command = "noctalia msg volume-up 2"
 
         [[bar.Beans.capsule_group]]
         enabled = true
@@ -83,7 +83,7 @@ sidebar_section = "compact"
 width = 700
 
     [control_center.calendar]
-    show_events_card = true
+    show_events_card = false
 
     [[control_center.shortcuts]]
     type = "audio"
@@ -369,8 +369,8 @@ widget_order = [
         show_when_idle = true
 
 [nightlight]
-enabled = false
-force = false
+enabled = true
+force = true
 temperature_day = 4000
 temperature_night = 3900
 
@@ -420,7 +420,8 @@ enabled = [
     "noctalia/translator",
     "noctalia/notes",
     "noctalia/screen_recorder",
-    "kaizoku/keybind-cheatsheet"
+    "kaizoku/keybind-cheatsheet",
+    "kaizoku/songrec"
 ]
 
     [[plugins.source]]
@@ -521,7 +522,7 @@ ui_scale = 1.0
     [shell.screenshot]
     confirm_region = false
     copy_to_clipboard = true
-    directory = "~/Pictures/Screenshots/"
+    directory = "~/Pictures/Screenshots"
     filename_pattern = ""
     freeze_screen = true
     pipe_command = ""
@@ -579,16 +580,6 @@ ui_scale = 1.0
     label = ""
     shortcut = "4"
     variant = "destructive"
-
-    [[shell.session.actions]]
-    action = "command"
-    command = "notify-send 'Noctalia' 'Custom session entry'"
-    countdown_seconds = 0.0
-    enabled = true
-    glyph = ""
-    label = ""
-    shortcut = ""
-    variant = "default"
 
     [shell.shadow]
     alpha = 0.55000001192092896

@@ -262,6 +262,20 @@ install_cargo_tools() {
   fi
 }
 
+install_songrec() {
+  log "Checking for songrec..."
+  if command -v songrec &>/dev/null; then
+    log "  songrec already installed, skipping"
+    return
+  fi
+  log "Installing songrec via cargo..."
+  if cargo install songrec --no-default-features -F gui,ffmpeg,pulse,pipewire,mpris; then
+    log "  songrec installed successfully"
+  else
+    log "  WARNING: songrec install failed — you can retry with: cargo install songrec --no-default-features -F gui,ffmpeg,pulse,pipewire,mpris"
+  fi
+}
+
 setup_path() {
   log "Ensuring ~/.local/bin is on PATH..."
   local shell_name
@@ -467,6 +481,7 @@ main() {
   check_noctalia
   install_deps
   install_cargo_tools
+  install_songrec
   setup_path
   make_directories
   clone_repo

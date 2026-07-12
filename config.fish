@@ -23,7 +23,7 @@ if status is-interactive # Commands to run in interactive sessions can go here
 
     # Aliases
     alias pamcan pacman
-    alias ls 'eza --icons'
+    alias ls 'eza --icons=auto'
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
 end
 

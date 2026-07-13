@@ -1,0 +1,40 @@
+id           = "kaizoku/songrec"
+name         = "SongRec"
+version      = "5.0.0"
+min_noctalia = "5.0.0"
+author       = "kaizoku"
+license      = "MIT"
+icon         = "music"
+description  = "Recognize songs using SongRec (system audio & microphone). Shows current track in the bar with a history panel."
+tags         = ["songrec", "shazam", "music", "audio-recognition"]
+
+[[setting]]
+key     = "sr_poll_seconds"
+type    = "int"
+label   = "Auto-recognize interval (seconds)"
+default = 10
+min     = 3
+max     = 120
+
+[[setting]]
+key     = "sr_auto"
+type    = "bool"
+label   = "Auto-recognize"
+default = false
+
+[[widget]]
+id    = "widget"
+entry = "widget.luau"
+
+[[panel]]
+id              = "panel"
+entry           = "panel.luau"
+width           = 500
+height          = 650
+placement       = "attached"
+position        = "top_center"
+open_near_click = false
+
+[[service]]
+id    = "service"
+entry = "service.luau"

@@ -430,7 +430,7 @@ copy_files() {
   local pairs=(
     "hypr:$CONFIG_DIR/"
     "noctalia:$CONFIG_DIR/"
-    "noctalia/plugins:$HOME/.local/share/noctalia/"
+    "plugins:$HOME/.local/share/noctalia/"
     "fastfetch:$CONFIG_DIR/"
     "kitty:$CONFIG_DIR/"
     "nvim:$CONFIG_DIR/"

@@ -96,7 +96,7 @@ git lfs pull
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
-cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # custom noctalia cheatsheet plugin
+cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # for plugins
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
@@ -132,6 +132,7 @@ You will also need to install the following for things to work as seemlessly as 
 - cloudflare-speed-cli
 - hyprmoncfg
 - git-lfs
+- [SongRec](https://github.com/marin-m/SongRec)
 - probably some others im forgetting :D
 
 For starship, you will have to add this into your shell config (fish, bash, zsh)
@@ -163,8 +164,7 @@ git pull
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
-cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # custom noctalia cheatsheet plugin
-# Everything after this is optional
+cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # for plugins
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
@@ -217,11 +217,9 @@ In addition, I do also have some maybe useful aliases (they are very to me so ye
 If you guys have any suggestions on what to add or what needs fixing just open a github issue, but for now this is whats being done behind the scenes.
 
 Being worked on:
-- New widget for song recognition using [SongRec](https://github.com/marin-m/SongRec)
 - Making the dots and plugins be WM-Agnostic to work on all WMs (Hyprland, Niri, Mango, etc..)
 
 Being fixed:
-- The cheatsheet not loading properly
 - Lockscreen being on the default
 - An issue with cloudflare-speed-cli not installing with yay/paru (replacing the logic for it to install with cargo)
 
@@ -246,6 +244,8 @@ In addition, these dots does not deal with services, it it mainly to get you sta
 [Gakuseei](https://github.com/Gakuseei/rishot) - The maker of Rishot, love this tool
 
 [Shanu-Kumawat](https://github.com/Shanu-Kumawat/quickshell-overview) - For the quickshell overview tool, the most perfect one i found for my flow
+
+[SongRec](https://github.com/marin-m/SongRec) - The backbone of the Songrec plugin
 
 <div align="center">
 <h2> Copying and License </h2>

@@ -48,6 +48,9 @@ DEPSSYSD=(
   quickshell-overview-git
   hyprmoncfg
   cargo
+  xdg-desktop-portal
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-hyprland
 )
 
 DEPSRUNIT=(
@@ -97,6 +100,9 @@ DEPSRUNIT=(
   quickshell-overview-git
   hyprmoncfg
   cargo
+  xdg-desktop-portal
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-hyprland
 )
 
 DEPSOPENRC=(
@@ -146,6 +152,9 @@ DEPSOPENRC=(
   quickshell-overview-git
   hyprmoncfg
   cargo
+  xdg-desktop-portal
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-hyprland
 )
 
 DEPSDINIT=(
@@ -195,6 +204,9 @@ DEPSDINIT=(
   quickshell-overview-git
   hyprmoncfg
   cargo
+  xdg-desktop-portal
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-hyprland
 )
 
 log() {

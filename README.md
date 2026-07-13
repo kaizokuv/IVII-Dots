@@ -104,7 +104,7 @@ git lfs pull
 # Copy the necessary files to ~/.config
 cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
 cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
-cp -r ~/IVII-Dots/noctalia/plugins ~/.local/share/noctalia/ # for plugins
+cp -r ~/IVII-Dots/plugins ~/.local/share/noctalia/ # for plugins
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
@@ -161,9 +161,22 @@ eval "$(starship init zsh)"
 For updating just follow this
 
 ```bash
-```
-
-```
+cd IVII-Dots
+git pull
+git lfs pull
+# Copy the necessary files to ~/.config
+cp -r ~/IVII-Dots/hypr/ ~/.config/ # for hyprland configs
+cp -r ~/IVII-Dots/noctalia/ ~/.config/ # for noctalia configurations
+cp -r ~/IVII-Dots/plugins ~/.local/share/noctalia/ # for plugins
+cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
+cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
+cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
+cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
+cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
+cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
+cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
+cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
+cp -r ~/IVII-Dots/Wallpapers ~/ # Wallpapers
 ```
 
 Or just re-run the install script :D

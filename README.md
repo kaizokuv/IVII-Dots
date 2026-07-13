@@ -61,7 +61,7 @@ Browser - Brave
 
 Music Player - Spotify
 
-File Manager - Nemo (Moving to yazi soon)
+File Manager - Nemo
 
 Screen Recorder - OBS
 
@@ -108,10 +108,7 @@ cp -r ~/IVII-Dots/plugins ~/.local/share/noctalia/ # for plugins
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
-cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
-cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
-cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/
 touch ~/.config/hypr/monitors.lua # for multi monitor configuration via hyprmoncfg
@@ -123,15 +120,12 @@ You will also need to install the following for things to work as seemlessly as 
 - kitty
 - fish
 - neovim
-- Nemo
 - power-profiles-daemon
-- [Late.sh](https://github.com/mpiorowski/late-sh)
 - [Rishot](https://github.com/Gakuseei/rishot)
 - [quickshell-overview](https://github.com/Shanu-Kumawat/quickshell-overview)
 - kotofetch
 - zoxide
 - pay-respects
-- cloudflare-speed-cli
 - hyprmoncfg
 - git-lfs
 - [SongRec](https://github.com/marin-m/SongRec)
@@ -171,10 +165,7 @@ cp -r ~/IVII-Dots/plugins ~/.local/share/noctalia/ # for plugins
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
-cp -r ~/IVII-Dots/btop/ ~/.config/ # btop configs (looks and stuff)
-cp -r ~/IVII-Dots/cava/ ~/.config/ # cava config to match with noctalia colours
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
-cp -r ~/IVII-Dots/rmpc/ ~/.config/ # rmpc config
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/ # Wallpapers
 ```
@@ -193,10 +184,10 @@ I'm a big fan of saying "no" to the mouse, so just about anything you can think 
 |Super + I|Settings for Noctalia|
 |Super + N|Control Center Main Panel|
 |Ctrl + Super + T|Wallpaper Panel|
-|Super + Return / Super + T|Terminal (Default is Kitty, change in config to suit Your needs)|
-|Super + C|Neovim (Change it to any code editor tbh)|
-|Super + W|Browser (Default is Brave, change in config to suit Your needs)|
-|Super + E|File Manager (Default is Nemo, change in config to suit your needs)|
+|Super + Return |Terminal|
+|Super + C|Code Editor|
+|Super + W|Browser|
+|Super + E|File Manager|
 |Super + Q|Close Window|
 |Super + Comma|Cheatsheet|
 
@@ -211,7 +202,6 @@ In addition, I do also have some maybe useful aliases (they are very to me so ye
 |paclist|List all installed packages (yay -Qqe)|
 |killorphans|Removes all orphaned packages|
 |cache|Clears your cache|
-|w|Checks wifi speed via cloudflare-speed-cli|
 
 <div align="center">
 <h2> Being Worked on/fixing </h2>
@@ -242,8 +232,6 @@ In addition, these dots does not deal with services, it it mainly to get you sta
 [End-4 Dotfiles](https://github.com/end-4/dots-hyprland) - These were my first dots that i used and were the base for about half of the keybinds and hyprland animations you see
 
 [Noctalia](https://github.com/noctalia-dev/noctalia) - The shell, bloody gorgeous and an inspiration for my own shell to come
-
-[Light-em's RMPC config](https://github.com/light-em/Archer/tree/master) - I saw this and loved it, credit where it's due
 
 [Gakuseei](https://github.com/Gakuseei/rishot) - The maker of Rishot, love this tool
 

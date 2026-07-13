@@ -143,48 +143,9 @@ hl.bind(
 
 -- Apps
 hl.bind("SUPER + W", hl.dsp.exec_cmd("brave"), { description = "Brave Browser" })
-hl.bind("SUPER + Z", hl.dsp.exec_cmd("app.zen_browser.zen"), { description = "Zen Browser" })
-hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("vesktop"), { description = "Vesktop" })
-hl.bind("SUPER + E", hl.dsp.exec_cmd("nemo"), { description = "Nemo" })
-hl.bind("SUPER + P", hl.dsp.exec_cmd("spotify"), { description = "Spotify" })
-
--- Terminal and TUIs
-hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "Kitty" })
-hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"), { description = "Kitty" })
--- hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e /usr/bin/yazi"), { description = "App: File manager" })
-hl.bind("SUPER + C", hl.dsp.exec_cmd("kitty -e nvim"), { description = "Neovim" })
-hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("kitty -e /home/kaizoku/.local/bin/late"), { description = "Late.sh" })
-hl.bind("SUPER + B", hl.dsp.exec_cmd("kitty -e btop"), { description = "Btop" })
-
--- Config Files
-hl.bind(
-	"SUPER + H",
-	hl.dsp.exec_cmd("kitty -e nvim ~/.config/hypr/hyprland.lua"),
-	{ description = "Hyprland Lua Config" }
-)
-hl.bind(
-	"CTRL + SUPER + F",
-	hl.dsp.exec_cmd("kitty -e nvim ~/.config/fish/config.fish"),
-	{ description = "Fish Config" }
-)
-hl.bind("SUPER + K", hl.dsp.exec_cmd("kitty -e nvim ~/.config/kitty/kitty.conf"), { description = "Kitty Config" })
-
--- For ricing screenshots
-hl.bind(
-	"SHIFT + SUPER + Return",
-	hl.dsp.exec_cmd("kitty --class floating-kitty"),
-	{ description = "Kitty (Floating and Centred)" }
-)
-hl.bind(
-	"SHIFT + SUPER + T",
-	hl.dsp.exec_cmd("kitty --class floating-kittyfm"),
-	{ description = "Kitty (Floating and Spawns Where The Mouse Is)" }
-)
-hl.bind(
-	"SUPER + ALT + C",
-	hl.dsp.exec_cmd("kitty --class floating-kittyfm -e cava"),
-	{ description = "Cava (Floating and Spawns Where The Mouse Is)" }
-)
+hl.bind("SUPER + E", hl.dsp.exec_cmd("nemo"), { description = "File Manager" })
+hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "Terminal" })
+hl.bind("SUPER + C", hl.dsp.exec_cmd("kitty -e nvim"), { description = "Code Editor" })
 
 -- Hidden Workspace
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"), { description = "Toggles Hidden Workspace" })
@@ -598,26 +559,4 @@ require("noctalia").apply_theme()
 hl.window_rule({ match = { class = ".*" }, no_blur = true })
 
 -- App transparency
-hl.window_rule({ match = { class = "Spotify" }, opacity = "0.8 override" })
 hl.window_rule({ match = { class = "kitty" }, opacity = "0.8 override 0.65 override" })
-hl.window_rule({ match = { class = "floating-kitty" }, opacity = "0.8 override 0.65 override" })
-hl.window_rule({ match = { class = "floating-kittyfm" }, opacity = "0.8 override 0.65 override" })
-hl.window_rule({ match = { class = "vesktop" }, opacity = "0.9 override" })
-hl.window_rule({ match = { class = "steam" }, opacity = "0.9 override" })
-hl.window_rule({ match = { class = "nemo" }, opacity = "0.85 override" })
-
--- Floating kitty
-hl.window_rule({
-	match = { class = "floating-kitty" },
-	float = true,
-	center = true,
-	size = "1000 700",
-})
-
--- Floating kitty (follow mouse)
-hl.window_rule({
-	match = { class = "floating-kittyfm" },
-	float = true,
-	size = "850 550",
-	move = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
-})

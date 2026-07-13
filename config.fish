@@ -70,9 +70,6 @@ end
 #battery health
 alias bathealth="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
-# wifi
-alias w="cloudflare-speed-cli"
-
 # grub configs
 alias egrubcfg="sudo nvim /etc/default/grub"
 alias rgrubcfg="sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -83,10 +80,3 @@ alias pidkill="sudo kill -9"
 alias plockkill="sudo rm /var/lib/pacman/db.lck"
 
 pay-respects fish --alias | source
-
-# pnpm
-set -gx PNPM_HOME "~/.local/share/pnpm"
-if not string match -q -- "$PNPM_HOME/bin" $PATH
-    set -gx PATH "$PNPM_HOME/bin" $PATH
-end
-# pnpm end

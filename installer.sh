@@ -11,27 +11,19 @@ CONFIG_DIR="$HOME/.config"
 DEPSSYSD=(
   hyprland
   noctalia-git
-  mpd
-  rmpc
   kitty
   neovim
   fastfetch
-  yazi
   fish
   curl
   fd
-  cava
-  btop
   starship
   power-profiles-daemon
-  mpvpaper
   bluez
   bluez-utils
-  brave-bin
   eza
   git-lfs
   kotofetch
-  matugen-git
   networkmanager
   pipewire-alsa
   pipewire-pulse
@@ -51,35 +43,42 @@ DEPSSYSD=(
   xdg-desktop-portal
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
+  # All below for songrec
+  pkgconf
+  blueprint-compiler
+  git
+  gtk4
+  libadwaita
+  libsoup3
+  alsa-lib
+  libpulse
+  libpipewire
+  clang
+  openssl
+  ffmpeg
+  gettext
+  sed
+  grep
 )
 
 DEPSRUNIT=(
   hyprland
   noctalia-git
-  mpd
-  mpd-runit
-  rmpc
   kitty
   neovim
   fastfetch
-  yazi
   fish
   curl
   fd
-  cava
-  btop
   starship
   power-profiles-daemon
   power-profiles-daemon-runit
-  mpvpaper
   bluez
   bluez-runit
   bluez-utils
-  brave-bin
   eza
   git-lfs
   kotofetch
-  matugen-git
   networkmanager
   networkmanager-runit
   pipewire-alsa
@@ -103,35 +102,42 @@ DEPSRUNIT=(
   xdg-desktop-portal
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
+  # All below for songrec
+  pkgconf
+  blueprint-compiler
+  git
+  gtk4
+  libadwaita
+  libsoup3
+  alsa-lib
+  libpulse
+  libpipewire
+  clang
+  openssl
+  ffmpeg
+  gettext
+  sed
+  grep
 )
 
 DEPSOPENRC=(
   hyprland
   noctalia-git
-  mpd
-  mpd-openrc
-  rmpc
   kitty
   neovim
   fastfetch
-  yazi
   fish
   curl
   fd
-  cava
-  btop
   starship
   power-profiles-daemon
   power-profiles-daemon-openrc
-  mpvpaper
   bluez
   bluez-openrc
   bluez-utils
-  brave-bin
   eza
   git-lfs
   kotofetch
-  matugen-git
   networkmanager
   networkmanager-openrc
   pipewire-alsa
@@ -155,35 +161,42 @@ DEPSOPENRC=(
   xdg-desktop-portal
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
+  # All below for songrec
+  pkgconf
+  blueprint-compiler
+  git
+  gtk4
+  libadwaita
+  libsoup3
+  alsa-lib
+  libpulse
+  libpipewire
+  clang
+  openssl
+  ffmpeg
+  gettext
+  sed
+  grep
 )
 
 DEPSDINIT=(
   hyprland
   noctalia-git
-  mpd
-  mpd-dinit
-  rmpc
   kitty
   neovim
   fastfetch
-  yazi
   fish
   curl
   fd
-  cava
-  btop
   starship
   power-profiles-daemon
   power-profiles-daemon-dinit
-  mpvpaper
   bluez
   bluez-dinit
   bluez-utils
-  brave-bin
   eza
   git-lfs
   kotofetch
-  matugen-git
   networkmanager
   networkmanager-dinit
   pipewire-alsa
@@ -207,6 +220,22 @@ DEPSDINIT=(
   xdg-desktop-portal
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
+  # All below for songrec
+  pkgconf
+  blueprint-compiler
+  git
+  gtk4
+  libadwaita
+  libsoup3
+  alsa-lib
+  libpulse
+  libpipewire
+  clang
+  openssl
+  ffmpeg
+  gettext
+  sed
+  grep
 )
 
 log() {
@@ -257,20 +286,6 @@ install_rishot() {
     log "rishot installed successfully"
   else
     log "WARNING: rishot install failed (network issue or upstream script error) — continuing without it"
-  fi
-}
-
-install_cargo_tools() {
-  log "Checking for cloudflare-speed-cli..."
-  if command -v cloudflare-speed-cli &>/dev/null; then
-    log "  cloudflare-speed-cli already installed, skipping"
-    return
-  fi
-  log "Installing cloudflare-speed-cli via cargo..."
-  if cargo install cloudflare-speed-cli; then
-    log "  cloudflare-speed-cli installed successfully"
-  else
-    log "  WARNING: cloudflare-speed-cli install failed — you can retry with: cargo install cloudflare-speed-cli"
   fi
 }
 
@@ -434,9 +449,6 @@ copy_files() {
     "fastfetch:$CONFIG_DIR/"
     "kitty:$CONFIG_DIR/"
     "nvim:$CONFIG_DIR/"
-    "btop:$CONFIG_DIR/"
-    "cava:$CONFIG_DIR/"
-    "rmpc:$CONFIG_DIR/"
     "Wallpapers:$HOME/"
   )
 
@@ -492,7 +504,6 @@ main() {
   update_system
   check_noctalia
   install_deps
-  install_cargo_tools
   install_songrec
   setup_path
   make_directories

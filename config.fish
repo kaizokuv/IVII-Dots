@@ -80,3 +80,6 @@ alias pidkill="sudo kill -9"
 alias plockkill="sudo rm /var/lib/pacman/db.lck"
 
 pay-respects fish --alias | source
+
+fish_add_path ~/.local/bin/
+fish_add_path ~/.cargo/bin/

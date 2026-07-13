@@ -81,7 +81,7 @@ Make sure you also have yay or paru installed
 Just follow these instructions and the dots will work just fine (hopefully), if they don't just hmu with an issue
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kaizokuv/IVII-Dots/main/installer.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kaizokuv/IVII-Dots/main/installer-stable.sh)"
 ```
 
 And if that doesn't work, then just use the commands below and it'll do the exact same thing
@@ -90,7 +90,7 @@ And if that doesn't work, then just use the commands below and it'll do the exac
 git clone https://github.com/kaizokuv/IVII-Dots.git
 cd IVII-Dots
 chmod +x installer.sh
-./installer.sh
+./installer-stable.sh
 ```
 
 Now if you don't trust the script (I don't blame you), just do it the manual way then

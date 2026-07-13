@@ -30,7 +30,7 @@ hl.layer_rule({
 hl.bind("SUPER + Tab", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"), { description = "Launcher" })
 
 -- Window Overview
-hl.bind("SUPER + O", hl.dsp.exec_cmd("qs ipc -c overview call overview toggle"), { description = "window overview" })
+hl.bind("SUPER + O", hl.dsp.exec_cmd("qs ipc -c overview call overview toggle"), { description = "Window Overview" })
 
 -- Cheatsheet
 hl.bind(

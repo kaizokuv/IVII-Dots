@@ -249,6 +249,7 @@ die() {
 
 AUR_HELPER=""
 FAILED_PACKAGES=()
+INIT_SYSTEM=""
 
 detect_aur_helper() {
   if command -v yay &>/dev/null; then
@@ -259,6 +260,29 @@ detect_aur_helper() {
     die "No AUR helper found (paru or yay required). Install one first."
   fi
   log "Using AUR helper: $AUR_HELPER"
+}
+
+detect_init_system() {
+  local comm
+  comm=$(cat /proc/1/comm 2>/dev/null | tr -d '\n')
+
+  case "$comm" in
+    systemd) INIT_SYSTEM="systemd" ;;
+    dinit)   INIT_SYSTEM="dinit" ;;
+    runit)   INIT_SYSTEM="runit" ;;
+    openrc-init|init)
+      if [[ -d /etc/runit ]]; then
+        INIT_SYSTEM="runit"
+      elif [[ -d /etc/init.d ]]; then
+        INIT_SYSTEM="openrc"
+      elif command -v dinitctl &>/dev/null; then
+        INIT_SYSTEM="dinit"
+      else
+        return 1
+      fi
+      ;;
+    *) return 1 ;;
+  esac
 }
 
 update_system() {
@@ -363,50 +387,37 @@ set_default_shell() {
 }
 
 install_deps() {
-  read -p " Choose init system: SystemD (1), OpenRC (2), Runit (3), Dinit (4): " choice
+  if ! detect_init_system; then
+    read -p " Could not detect init system. Choose: SystemD (1), OpenRC (2), Runit (3), Dinit (4): " choice
+    case "$choice" in
+      1) INIT_SYSTEM="systemd" ;;
+      2) INIT_SYSTEM="openrc" ;;
+      3) INIT_SYSTEM="runit"  ;;
+      4) INIT_SYSTEM="dinit"  ;;
+      *) die "Invalid choice" ;;
+    esac
+  else
+    log "Detected init system: $INIT_SYSTEM"
+  fi
 
   local -n selected_deps
-  case "$choice" in
-  1) selected_deps=DEPSSYSD ;;
-  2) selected_deps=DEPSOPENRC ;;
-  3) selected_deps=DEPSRUNIT ;;
-  4) selected_deps=DEPSDINIT ;;
-  *) die "Invalid choice: $choice" ;;
+  case "$INIT_SYSTEM" in
+    systemd) selected_deps=DEPSSYSD ;;
+    openrc)  selected_deps=DEPSOPENRC ;;
+    runit)   selected_deps=DEPSRUNIT ;;
+    dinit)   selected_deps=DEPSDINIT ;;
+    *)       die "Unknown init system: $INIT_SYSTEM" ;;
   esac
 
   log "Installing dependencies via $AUR_HELPER..."
-  local failed=()
 
-  for pkg in "${selected_deps[@]}"; do
-    if "$AUR_HELPER" -S --needed --noconfirm "$pkg"; then
-      log "  [OK] $pkg"
-    else
-      log "  [FAIL] $pkg"
-      failed+=("$pkg")
-    fi
-  done
-
-  if [[ ${#failed[@]} -gt 0 ]]; then
-    log "Retrying ${#failed[@]} failed package(s) after a cooldown: ${failed[*]}"
-    sleep 30
-    local still_failed=()
-    for pkg in "${failed[@]}"; do
-      if "$AUR_HELPER" -S --needed --noconfirm "$pkg"; then
-        log "  [OK on retry] $pkg"
-      else
-        log "  [FAIL again] $pkg"
-        still_failed+=("$pkg")
-      fi
-    done
-    failed=("${still_failed[@]}")
+  if "$AUR_HELPER" -S --needed --noconfirm "${selected_deps[@]}"; then
+    log "All dependencies installed successfully"
+  else
+    log "WARNING: Some packages failed to install — check the output above"
   fi
 
   install_rishot
-
-  if [[ ${#failed[@]} -gt 0 ]]; then
-    FAILED_PACKAGES+=("${failed[@]}")
-    log "WARNING: Failed to install: ${failed[*]} — continuing with the rest of the setup"
-  fi
 }
 
 make_directories() {

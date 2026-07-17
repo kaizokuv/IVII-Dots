@@ -81,7 +81,7 @@ Make sure you also have yay or paru installed
 Just follow these instructions and the dots will work just fine (hopefully), if they don't just hmu with an issue
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kaizokuv/IVII-Dots/main/installer-stable.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kaizokuv/IVII-Dots/main/installer.sh)"
 ```
 
 And if that doesn't work, then just use the commands below and it'll do the exact same thing
@@ -90,7 +90,7 @@ And if that doesn't work, then just use the commands below and it'll do the exac
 git clone https://github.com/kaizokuv/IVII-Dots.git
 cd IVII-Dots
 chmod +x installer.sh
-./installer-stable.sh
+./installer.sh
 ```
 
 Now if you don't trust the script (I don't blame you), just do it the manual way then
@@ -108,10 +108,13 @@ cp -r ~/IVII-Dots/plugins ~/.local/share/noctalia/ # for plugins
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
+cp -r ~/IVII-Dots/rmpc/ ~/.config/ # for rmpc music player client
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/
 touch ~/.config/hypr/monitors.lua # for multi monitor configuration via hyprmoncfg
+sudo chmod +x installer.sh
+./installer.sh
 ```
 
 You will also need to install the following for things to work as seemlessly as they do for me (do install them before cloning the repo)
@@ -165,9 +168,12 @@ cp -r ~/IVII-Dots/plugins ~/.local/share/noctalia/ # for plugins
 cp -r ~/IVII-Dots/fastfetch/ ~/.config/ # for fastfetch (dont if you want to keep yours)
 cp -r ~/IVII-Dots/kitty/ ~/.config/ # if you use kitty and want it to look the same
 cp -r ~/IVII-Dots/nvim/ ~/.config/ # installs lazyvim
+cp -r ~/IVII-Dots/rmpc/ ~/.config/ # for rmpc music player client
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/ # Wallpapers
+sudo chmod +x installer.sh
+./installer.sh
 ```
 
 Or just re-run the install script :D
@@ -237,6 +243,8 @@ In addition, these dots does not deal with services, it it mainly to get you sta
 [Shanu-Kumawat](https://github.com/Shanu-Kumawat/quickshell-overview) - For the quickshell overview tool, the most perfect one i found for my flow
 
 [SongRec](https://github.com/marin-m/SongRec) - The backbone of the Songrec plugin
+
+[Light-em](https://github.com/light-em/Archer) - The inspiration of the RMPC config (I took it and remodelled it for my liking ;w;..)
 
 <div align="center">
 <h2> Copying and License </h2>

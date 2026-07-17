@@ -28,6 +28,8 @@ DEPSSYSD=(
   pipewire-alsa
   pipewire-pulse
   wireplumber
+  mpd
+  rmpc
   zoxide
   noto-fonts
   noto-fonts-cjk
@@ -87,6 +89,9 @@ DEPSRUNIT=(
   pipewire-pulse-runit
   wireplumber
   wireplumber-runit
+  mpd
+  mpd-runit
+  rmpc
   zoxide
   noto-fonts
   noto-fonts-cjk
@@ -146,6 +151,9 @@ DEPSOPENRC=(
   pipewire-pulse-openrc
   wireplumber
   wireplumber-openrc
+  mpd
+  mpd-openrc
+  rmpc
   zoxide
   noto-fonts
   noto-fonts-cjk
@@ -205,6 +213,9 @@ DEPSDINIT=(
   pipewire-pulse-dinit
   wireplumber
   wireplumber-dinit
+  mpd
+  mpd-dinit
+  rmpc
   zoxide
   noto-fonts
   noto-fonts-cjk
@@ -267,21 +278,21 @@ detect_init_system() {
   comm=$(cat /proc/1/comm 2>/dev/null | tr -d '\n')
 
   case "$comm" in
-    systemd) INIT_SYSTEM="systemd" ;;
-    dinit)   INIT_SYSTEM="dinit" ;;
-    runit)   INIT_SYSTEM="runit" ;;
-    openrc-init|init)
-      if [[ -d /etc/runit ]]; then
-        INIT_SYSTEM="runit"
-      elif [[ -d /etc/init.d ]]; then
-        INIT_SYSTEM="openrc"
-      elif command -v dinitctl &>/dev/null; then
-        INIT_SYSTEM="dinit"
-      else
-        return 1
-      fi
-      ;;
-    *) return 1 ;;
+  systemd) INIT_SYSTEM="systemd" ;;
+  dinit) INIT_SYSTEM="dinit" ;;
+  runit) INIT_SYSTEM="runit" ;;
+  openrc-init | init)
+    if [[ -d /etc/runit ]]; then
+      INIT_SYSTEM="runit"
+    elif [[ -d /etc/init.d ]]; then
+      INIT_SYSTEM="openrc"
+    elif command -v dinitctl &>/dev/null; then
+      INIT_SYSTEM="dinit"
+    else
+      return 1
+    fi
+    ;;
+  *) return 1 ;;
   esac
 }
 
@@ -390,11 +401,11 @@ install_deps() {
   if ! detect_init_system; then
     read -p " Could not detect init system. Choose: SystemD (1), OpenRC (2), Runit (3), Dinit (4): " choice
     case "$choice" in
-      1) INIT_SYSTEM="systemd" ;;
-      2) INIT_SYSTEM="openrc" ;;
-      3) INIT_SYSTEM="runit"  ;;
-      4) INIT_SYSTEM="dinit"  ;;
-      *) die "Invalid choice" ;;
+    1) INIT_SYSTEM="systemd" ;;
+    2) INIT_SYSTEM="openrc" ;;
+    3) INIT_SYSTEM="runit" ;;
+    4) INIT_SYSTEM="dinit" ;;
+    *) die "Invalid choice" ;;
     esac
   else
     log "Detected init system: $INIT_SYSTEM"
@@ -402,11 +413,11 @@ install_deps() {
 
   local -n selected_deps
   case "$INIT_SYSTEM" in
-    systemd) selected_deps=DEPSSYSD ;;
-    openrc)  selected_deps=DEPSOPENRC ;;
-    runit)   selected_deps=DEPSRUNIT ;;
-    dinit)   selected_deps=DEPSDINIT ;;
-    *)       die "Unknown init system: $INIT_SYSTEM" ;;
+  systemd) selected_deps=DEPSSYSD ;;
+  openrc) selected_deps=DEPSOPENRC ;;
+  runit) selected_deps=DEPSRUNIT ;;
+  dinit) selected_deps=DEPSDINIT ;;
+  *) die "Unknown init system: $INIT_SYSTEM" ;;
   esac
 
   log "Installing dependencies via $AUR_HELPER..."
@@ -460,6 +471,7 @@ copy_files() {
     "fastfetch:$CONFIG_DIR/"
     "kitty:$CONFIG_DIR/"
     "nvim:$CONFIG_DIR/"
+    "rmpc:$CONFIG_DIR/"
     "Wallpapers:$HOME/"
   )
 

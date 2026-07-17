@@ -113,8 +113,6 @@ cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/
 touch ~/.config/hypr/monitors.lua # for multi monitor configuration via hyprmoncfg
-sudo chmod +x installer.sh
-./installer.sh
 ```
 
 You will also need to install the following for things to work as seemlessly as they do for me (do install them before cloning the repo)
@@ -172,8 +170,6 @@ cp -r ~/IVII-Dots/rmpc/ ~/.config/ # for rmpc music player client
 cp ~/IVII-Dots/starship.toml ~/.config/  # for starship terminal prompts
 cp ~/IVII-Dots/config.fish ~/.config/fish/ # fish config
 cp -r ~/IVII-Dots/Wallpapers ~/ # Wallpapers
-sudo chmod +x installer.sh
-./installer.sh
 ```
 
 Or just re-run the install script :D

@@ -59,7 +59,7 @@ Bar - Noctalia v5
 
 Browser - Brave
 
-Music Player - Spotify
+Music Player - RMPC/MPD
 
 File Manager - Nemo
 

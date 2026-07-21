@@ -211,6 +211,8 @@ In addition, I do also have some maybe useful aliases (they are very to me so ye
 
 If you guys have any suggestions on what to add or what needs fixing just open a github issue, but for now this is whats being done behind the scenes.
 
+UNDER A COMPLETE STRUCTURE REWORK, STUFF MIGHT NOT WORK
+
 Being worked on:
 - Making the dots and plugins be WM-Agnostic to work on all WMs (Hyprland, Niri, Mango, etc..)
 - Making the dots more modular (custom files for custom keybinds and rules)
